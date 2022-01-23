@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BusinessInfoDesign class="oracle.dbtools.crest.model.businessinfo.BusinessInfoDesign" name="Business Information" id="821C402E-1D60-DDB0-1FD5-1437D9E19480">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-23 12:52:12 UTC</createdTime>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</BusinessInfoDesign>

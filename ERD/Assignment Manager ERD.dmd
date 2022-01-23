@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="Assignment Manager ERD" id="7368020D-5413-4FDE-7DE5-F5AEFB8F0A85" version="3.5">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-23 12:52:11 UTC</createdTime>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>7368020D-5413-4FDE-7DE5-F5AEFB8F0A85</designId>
+</OSDM_Design>

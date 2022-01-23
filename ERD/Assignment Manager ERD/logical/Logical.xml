@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="6D5A48C5-C822-1DD0-A8AD-64A32D405872" mainViewID="6CBF3399-C3B4-519F-874F-74EA8D6294BC">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-23 12:52:11 UTC</createdTime>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

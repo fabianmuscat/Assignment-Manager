@@ -1,0 +1,98 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="FD821614-97D1-0FCD-66E2-5D1D707DAC8F" name="Module">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-23 13:04:48 UTC</createdTime>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<engineerTo>
+<item key="9DCFF183-40BB-2E67-893E-9F93C1C61A3A" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ModuleID" id="14DFE924-BFE8-CACC-D1CF-37134E921B07">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-23 13:04:52 UTC</createdTime>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<engineerTo>
+<item key="9DCFF183-40BB-2E67-893E-9F93C1C61A3A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ModuleName" id="2C4054CC-EC25-D991-86B6-1F647BEAF5C7">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-23 13:04:55 UTC</createdTime>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<engineerTo>
+<item key="9DCFF183-40BB-2E67-893E-9F93C1C61A3A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="SemesterNumber" id="1EEC9A5D-9F26-C359-3AAF-BE7229AB62CA">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-23 17:53:41 UTC</createdTime>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<engineerTo>
+<item key="9DCFF183-40BB-2E67-893E-9F93C1C61A3A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT034</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CourseID" id="795C2C4A-D125-BCEA-6AF0-C8069AEA7300">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-23 17:55:27 UTC</createdTime>
+<generatorID>2F28F781-3782-886C-D3E4-612AF3CE1E91</generatorID>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<engineerTo>
+<item key="9DCFF183-40BB-2E67-893E-9F93C1C61A3A" value="true"/>
+</engineerTo>
+<referedAttribute>612C5CD5-4A3A-806A-3EEB-405C3B8BE216</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT057</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="25403E5B-6516-5B53-385F-ABD2AACAF037" name="Module PK">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-23 13:05:23 UTC</createdTime>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<engineerTo>
+<item key="9DCFF183-40BB-2E67-893E-9F93C1C61A3A" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>14DFE924-BFE8-CACC-D1CF-37134E921B07</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="F42ED4DB-ED5A-ED2A-C052-DD246E1D5466" name="module_name_un">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-23 13:05:40 UTC</createdTime>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<engineerTo>
+<item key="9DCFF183-40BB-2E67-893E-9F93C1C61A3A" value="true"/>
+</engineerTo>
+<newElementsIDs>2C4054CC-EC25-D991-86B6-1F647BEAF5C7</newElementsIDs>
+<usedAttributes>
+<attributeRef>2C4054CC-EC25-D991-86B6-1F647BEAF5C7</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

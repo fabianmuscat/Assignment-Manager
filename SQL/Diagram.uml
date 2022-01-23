@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>6bb82596-8ca9-4ebd-9a10-748ab630c310.TABLE:Assignments.dbo.Assignment</OriginalElement>
+  <nodes>
+    <node x="-34.0" y="151.0">6bb82596-8ca9-4ebd-9a10-748ab630c310.TABLE:Assignments.dbo.StudentAssignment</node>
+    <node x="618.0" y="140.0">6bb82596-8ca9-4ebd-9a10-748ab630c310.TABLE:Assignments.dbo.Module</node>
+    <node x="279.5" y="107.0">6bb82596-8ca9-4ebd-9a10-748ab630c310.TABLE:Assignments.dbo.Assignment</node>
+    <node x="616.5" y="340.0">6bb82596-8ca9-4ebd-9a10-748ab630c310.TABLE:Assignments.dbo.Course</node>
+    <node x="-23.5" y="329.0">6bb82596-8ca9-4ebd-9a10-748ab630c310.TABLE:Assignments.dbo.Student</node>
+    <node x="286.0" y="-38.0">6bb82596-8ca9-4ebd-9a10-748ab630c310.TABLE:Assignments.dbo.Type</node>
+    <node x="-6.0" y="-29.0">6bb82596-8ca9-4ebd-9a10-748ab630c310.TABLE:Assignments.dbo.Grades</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="6bb82596-8ca9-4ebd-9a10-748ab630c310.TABLE:Assignments.dbo.StudentAssignment" target="6bb82596-8ca9-4ebd-9a10-748ab630c310.TABLE:Assignments.dbo.Assignment">
+      <point x="114.0" y="0.0" />
+      <point x="-120.5" y="0.0" />
+    </edge>
+    <edge source="6bb82596-8ca9-4ebd-9a10-748ab630c310.TABLE:Assignments.dbo.Student" target="6bb82596-8ca9-4ebd-9a10-748ab630c310.TABLE:Assignments.dbo.Course">
+      <point x="103.5" y="0.0" />
+      <point x="-103.5" y="0.0" />
+    </edge>
+    <edge source="6bb82596-8ca9-4ebd-9a10-748ab630c310.TABLE:Assignments.dbo.Assignment" target="6bb82596-8ca9-4ebd-9a10-748ab630c310.TABLE:Assignments.dbo.Type">
+      <point x="0.0" y="-93.0" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="6bb82596-8ca9-4ebd-9a10-748ab630c310.TABLE:Assignments.dbo.StudentAssignment" target="6bb82596-8ca9-4ebd-9a10-748ab630c310.TABLE:Assignments.dbo.Student">
+      <point x="0.0" y="49.0" />
+      <point x="0.0" y="-71.0" />
+    </edge>
+    <edge source="6bb82596-8ca9-4ebd-9a10-748ab630c310.TABLE:Assignments.dbo.Module" target="6bb82596-8ca9-4ebd-9a10-748ab630c310.TABLE:Assignments.dbo.Course">
+      <point x="0.0" y="60.0" />
+      <point x="0.0" y="-60.0" />
+    </edge>
+    <edge source="6bb82596-8ca9-4ebd-9a10-748ab630c310.TABLE:Assignments.dbo.Assignment" target="6bb82596-8ca9-4ebd-9a10-748ab630c310.TABLE:Assignments.dbo.Module">
+      <point x="120.5" y="0.0" />
+      <point x="-102.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Orthogonal" zoom="0.8182899787204576" x="459.63845761714845" y="342.43966040502403" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+

@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7E210400-21A1-6A63-2EBB-8CCCAAB72117" name="AssignmentGrade">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-24 07:50:22 UTC</createdTime>
+<generatorID>4BBBC5C1-6DD2-3E31-0780-7D1B32A9B784</generatorID>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Assignment_AssignmentID" id="0E097A12-506B-24A6-F9D3-07739E8B8DF3">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-24 07:50:22 UTC</createdTime>
+<generatorID>FE0706E5-7721-6139-0A3A-1C8271791C2C</generatorID>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT057</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E97AEEA9-A17B-A976-2036-482B7BE756B1" referredColumn="7F0AA608-87A3-0DAF-B525-5CEDE5D06B64"/>
+</associations>
+</Column>
+<Column name="Student_StudentID" id="67D46386-3438-A6E6-62C1-3E6C6FA8847A">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-24 07:50:22 UTC</createdTime>
+<generatorID>41D105C3-094D-BCEA-6B15-F0BE803FF802</generatorID>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>8</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="74B78896-0104-AA2A-3940-E65847D0A345" referredColumn="3EBC77EA-8F65-089A-BD43-A45D5C528B01"/>
+</associations>
+</Column>
+<Column name="Points" id="083DB865-2E69-9F97-8023-D3A96E748E56">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-24 07:50:22 UTC</createdTime>
+<generatorID>9AE6B7BE-BCA9-16D8-1132-1C1591E30512</generatorID>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5AB8F79E-2FCF-CDCF-40A1-B360C1FDE491" name="AssignmentGrade_PK">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-24 07:50:22 UTC</createdTime>
+<generatorID>609EE04B-14CE-EC6F-4618-01450102695D</generatorID>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0E097A12-506B-24A6-F9D3-07739E8B8DF3"/>
+<colUsage columnID="67D46386-3438-A6E6-62C1-3E6C6FA8847A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E9EF62C0-C322-0DA7-0EA1-CB3284041D31" name="AssignmentGrade_Assignment_FK">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-24 07:50:23 UTC</createdTime>
+<generatorID>DA7D12AB-46D1-FFC2-5C0B-73854CF018C5</generatorID>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0E097A12-506B-24A6-F9D3-07739E8B8DF3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="97CBC465-2A5A-8095-5A8B-1B91249FB229" name="AssignmentGrade_Student_FK">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-24 07:50:23 UTC</createdTime>
+<generatorID>1EA014E0-E317-844C-5FBC-72D1FB9510E9</generatorID>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="67D46386-3438-A6E6-62C1-3E6C6FA8847A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

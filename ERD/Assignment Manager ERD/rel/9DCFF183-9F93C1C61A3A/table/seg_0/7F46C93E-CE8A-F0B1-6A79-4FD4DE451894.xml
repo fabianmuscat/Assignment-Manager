@@ -1,0 +1,148 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7F46C93E-CE8A-F0B1-6A79-4FD4DE451894" name="Assignment">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-24 07:50:22 UTC</createdTime>
+<generatorID>A3B78075-2C31-4661-4C52-F8A76F8EBDD5</generatorID>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="AssignmentID" id="7F0AA608-87A3-0DAF-B525-5CEDE5D06B64">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-24 07:50:22 UTC</createdTime>
+<generatorID>6569037B-86AC-746C-A801-38CE4FACC097</generatorID>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT057</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="AssignmentName" id="E8FFFCB8-E2B7-D818-214E-4A02A7BEEE62">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-24 07:50:22 UTC</createdTime>
+<generatorID>3F2557CF-8DF9-6305-4620-41A06B2AD6B4</generatorID>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Module_ModuleID" id="04D4A325-CB33-0709-DF3D-DED6F248D319">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-24 07:50:22 UTC</createdTime>
+<generatorID>A16B3A48-076D-7AFA-EC0B-1ACABCF3A605</generatorID>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="302B88DB-5A1F-6556-79D3-E5B0B1074552" referredColumn="40862092-CC8C-7473-3379-6A019D864ADA"/>
+</associations>
+</Column>
+<Column name="MaxMark" id="B683F03F-435A-8891-2230-31CAF6D330A2">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-24 07:50:22 UTC</createdTime>
+<generatorID>379BDC47-19F4-6927-4E13-10A356A98080</generatorID>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Type_TypeID" id="71845F94-1E76-C9A6-2848-8C9B4B9F1000">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-24 07:50:22 UTC</createdTime>
+<generatorID>3EA61939-7151-D33B-99B1-02E71D241D1F</generatorID>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT057</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="306FE8CC-69B7-8F25-6BAE-F533F43576D5" referredColumn="AB0F3416-95D8-F36D-C535-23F894B23661"/>
+</associations>
+</Column>
+<Column name="Date_Issued" id="F5C5AA54-7F0F-ED12-8431-BE8A8EEC87AE">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-24 07:50:22 UTC</createdTime>
+<generatorID>200FC770-19D6-7E73-90C0-6A2128CC75A0</generatorID>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Deadline_Date" id="2370F83B-0ADF-EA0A-D1C9-A07F18D24F99">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-24 07:50:22 UTC</createdTime>
+<generatorID>AE0EAACD-3FD0-29FE-EAC4-3B8C069FF304</generatorID>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E824B279-2412-D954-7F66-2191CB08F15B" name="Assignment_PK">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-24 07:50:22 UTC</createdTime>
+<generatorID>57D38E92-D6C0-8C38-21CC-4EAEEEFF7052</generatorID>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7F0AA608-87A3-0DAF-B525-5CEDE5D06B64"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1EF5189D-7B7C-CF3C-3B73-74FCEA8FF5FF" name="Assignment_AssignmentName_UN">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-24 07:50:22 UTC</createdTime>
+<generatorID>467C945B-E57C-B076-1806-CCEEEF3F10F6</generatorID>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E8FFFCB8-E2B7-D818-214E-4A02A7BEEE62"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D3F3D1C5-907F-D610-CFBE-9B51F529E293" name="Assignment_Type_FK">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-24 07:50:23 UTC</createdTime>
+<generatorID>26A38D2E-9AAD-61CE-5261-CFB01C634662</generatorID>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="71845F94-1E76-C9A6-2848-8C9B4B9F1000"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3C0C277F-790D-21AF-1D15-C1F5565AA495" name="Assignment_Module_FK">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-24 07:50:23 UTC</createdTime>
+<generatorID>679AC376-DAEE-35BE-8FF8-E6D142E463DC</generatorID>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="04D4A325-CB33-0709-DF3D-DED6F248D319"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

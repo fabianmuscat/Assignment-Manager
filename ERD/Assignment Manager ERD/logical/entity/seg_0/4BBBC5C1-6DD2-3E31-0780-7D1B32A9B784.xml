@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="4BBBC5C1-6DD2-3E31-0780-7D1B32A9B784" name="StudentAssignment">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-23 18:36:42 UTC</createdTime>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<engineerTo>
+<item key="9DCFF183-40BB-2E67-893E-9F93C1C61A3A" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="StudentID" id="41D105C3-094D-BCEA-6B15-F0BE803FF802">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-23 18:39:59 UTC</createdTime>
+<generatorID>1EA014E0-E317-844C-5FBC-72D1FB9510E9</generatorID>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<engineerTo>
+<item key="9DCFF183-40BB-2E67-893E-9F93C1C61A3A" value="true"/>
+</engineerTo>
+<referedAttribute>82290531-62E1-709A-4497-A5E13A2A65CB</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>8</dataTypeSize>
+<ownDataTypeParameters>8,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="AssignmentID" id="FE0706E5-7721-6139-0A3A-1C8271791C2C">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-23 18:37:02 UTC</createdTime>
+<generatorID>DA7D12AB-46D1-FFC2-5C0B-73854CF018C5</generatorID>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<engineerTo>
+<item key="9DCFF183-40BB-2E67-893E-9F93C1C61A3A" value="true"/>
+</engineerTo>
+<referedAttribute>6569037B-86AC-746C-A801-38CE4FACC097</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT057</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Points" id="9AE6B7BE-BCA9-16D8-1132-1C1591E30512">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-23 19:04:53 UTC</createdTime>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<engineerTo>
+<item key="9DCFF183-40BB-2E67-893E-9F93C1C61A3A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="609EE04B-14CE-EC6F-4618-01450102695D" name="AssignmentGrade PK">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-23 18:37:02 UTC</createdTime>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<engineerTo>
+<item key="9DCFF183-40BB-2E67-893E-9F93C1C61A3A" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>FE0706E5-7721-6139-0A3A-1C8271791C2C</attributeRef>
+<attributeRef>41D105C3-094D-BCEA-6B15-F0BE803FF802</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

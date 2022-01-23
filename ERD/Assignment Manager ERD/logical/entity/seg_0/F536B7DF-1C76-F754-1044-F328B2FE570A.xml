@@ -1,0 +1,70 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="F536B7DF-1C76-F754-1044-F328B2FE570A" name="Type">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-24 07:21:52 UTC</createdTime>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<engineerTo>
+<item key="9DCFF183-40BB-2E67-893E-9F93C1C61A3A" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="TypeID" id="9050F63A-2B63-66D0-BE76-715F936B7A7D">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-24 07:21:57 UTC</createdTime>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<engineerTo>
+<item key="9DCFF183-40BB-2E67-893E-9F93C1C61A3A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT057</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="AssignmentType" id="1E747A74-43DE-E90E-205D-7DAC0C34B95F">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-24 07:22:04 UTC</createdTime>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<engineerTo>
+<item key="9DCFF183-40BB-2E67-893E-9F93C1C61A3A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="9251C86D-7AC3-CBBD-4C51-E0336C06943B" name="Type PK">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-24 07:22:03 UTC</createdTime>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<engineerTo>
+<item key="9DCFF183-40BB-2E67-893E-9F93C1C61A3A" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>9050F63A-2B63-66D0-BE76-715F936B7A7D</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="9B582D41-A8A4-C4E3-59BE-FDEC5D812D4F" name="assignment_type_un">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-24 07:22:26 UTC</createdTime>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<engineerTo>
+<item key="9DCFF183-40BB-2E67-893E-9F93C1C61A3A" value="true"/>
+</engineerTo>
+<newElementsIDs>1E747A74-43DE-E90E-205D-7DAC0C34B95F</newElementsIDs>
+<usedAttributes>
+<attributeRef>1E747A74-43DE-E90E-205D-7DAC0C34B95F</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

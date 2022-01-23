@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="7DF9A294-5C54-DF18-DE1C-3B45D6811C74" containerWithKeyObject="5FAFF01A-7CE6-889F-BBC8-DFA1CA24F77F" localFKIndex="6DABAD96-ADFA-F86C-9D23-0DF341D70EAD" name="Module_Grade_Module_FK">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-24 07:50:23 UTC</createdTime>
+<generatorID>D0399D8B-F2BF-44F4-D468-C4C820FC8A7A</generatorID>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<referredTableLongName>Module</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>3A17E44D-A13C-FFC5-DDE4-0E9FA7D06983</referredTableID>
+<keyObject>C796F951-68D2-773A-D224-76A66D0B09BA</keyObject>
+<referredKeyID>C796F951-68D2-773A-D224-76A66D0B09BA</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ModuleID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

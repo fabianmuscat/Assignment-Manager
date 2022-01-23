@@ -1,0 +1,137 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="A3B78075-2C31-4661-4C52-F8A76F8EBDD5" name="Assignment">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-23 18:30:49 UTC</createdTime>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<engineerTo>
+<item key="9DCFF183-40BB-2E67-893E-9F93C1C61A3A" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="AssignmentID" id="6569037B-86AC-746C-A801-38CE4FACC097">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-23 18:30:54 UTC</createdTime>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<engineerTo>
+<item key="9DCFF183-40BB-2E67-893E-9F93C1C61A3A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT057</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="AssignmentName" id="3F2557CF-8DF9-6305-4620-41A06B2AD6B4">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-23 18:31:02 UTC</createdTime>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<engineerTo>
+<item key="9DCFF183-40BB-2E67-893E-9F93C1C61A3A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ModuleID" id="A16B3A48-076D-7AFA-EC0B-1ACABCF3A605">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-23 18:33:58 UTC</createdTime>
+<generatorID>679AC376-DAEE-35BE-8FF8-E6D142E463DC</generatorID>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<engineerTo>
+<item key="9DCFF183-40BB-2E67-893E-9F93C1C61A3A" value="true"/>
+</engineerTo>
+<referedAttribute>14DFE924-BFE8-CACC-D1CF-37134E921B07</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="MaxMark" id="379BDC47-19F4-6927-4E13-10A356A98080">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-23 18:55:37 UTC</createdTime>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<engineerTo>
+<item key="9DCFF183-40BB-2E67-893E-9F93C1C61A3A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TypeID" id="3EA61939-7151-D33B-99B1-02E71D241D1F">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-24 07:23:08 UTC</createdTime>
+<generatorID>26A38D2E-9AAD-61CE-5261-CFB01C634662</generatorID>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<engineerTo>
+<item key="9DCFF183-40BB-2E67-893E-9F93C1C61A3A" value="true"/>
+</engineerTo>
+<referedAttribute>9050F63A-2B63-66D0-BE76-715F936B7A7D</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT057</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Date Issued" id="200FC770-19D6-7E73-90C0-6A2128CC75A0">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-24 07:23:33 UTC</createdTime>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<engineerTo>
+<item key="9DCFF183-40BB-2E67-893E-9F93C1C61A3A" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Deadline Date" id="AE0EAACD-3FD0-29FE-EAC4-3B8C069FF304">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-24 07:23:54 UTC</createdTime>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<engineerTo>
+<item key="9DCFF183-40BB-2E67-893E-9F93C1C61A3A" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="57D38E92-D6C0-8C38-21CC-4EAEEEFF7052" name="Assignment PK">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-23 18:31:00 UTC</createdTime>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<engineerTo>
+<item key="9DCFF183-40BB-2E67-893E-9F93C1C61A3A" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>6569037B-86AC-746C-A801-38CE4FACC097</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="467C945B-E57C-B076-1806-CCEEEF3F10F6" name="assignment_name_unv1">
+<createdBy>fabianmuscat</createdBy>
+<createdTime>2021-05-23 18:32:28 UTC</createdTime>
+<ownerDesignName>Assignment Manager ERD</ownerDesignName>
+<engineerTo>
+<item key="9DCFF183-40BB-2E67-893E-9F93C1C61A3A" value="true"/>
+</engineerTo>
+<newElementsIDs>3F2557CF-8DF9-6305-4620-41A06B2AD6B4</newElementsIDs>
+<usedAttributes>
+<attributeRef>3F2557CF-8DF9-6305-4620-41A06B2AD6B4</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
