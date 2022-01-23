@@ -1,3 +1,4 @@
+using Data.Interfaces;
 using Domain.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -15,7 +16,7 @@ public class AssignmentsContext : IdentityDbContext
     public DbSet<Student>? Students { get; set; }
     public DbSet<Assignment>? Assignments { get; set; }
     public DbSet<StudentAssignment>? StudentAssignments { get; set; }
-
+    
     public AssignmentsContext(DbContextOptions options) : base(options)
     { }
 
@@ -39,6 +40,28 @@ public class AssignmentsContext : IdentityDbContext
             .HasOne(sa => sa.Assignment)
             .WithMany(a => a.StudentAssignments)
             .HasForeignKey(sa => sa.AssignmentID);
+
+        modelBuilder.Entity<StudentGrade>().HasNoKey();
+
+        modelBuilder
+            .HasDbFunction(typeof(IAssignmentRepository).GetMethod(nameof(IAssignmentRepository.GetCourseId),
+                new[] { typeof(string) }) ?? throw new InvalidOperationException());
+        
+        modelBuilder
+            .HasDbFunction(typeof(IAssignmentRepository).GetMethod(nameof(IAssignmentRepository.GetModuleId),
+                new[] { typeof(string) }) ?? throw new InvalidOperationException());
+        
+        modelBuilder
+            .HasDbFunction(typeof(IAssignmentRepository).GetMethod(nameof(IAssignmentRepository.GetTypeId),
+                new[] { typeof(string) }) ?? throw new InvalidOperationException());
+        
+        modelBuilder
+            .HasDbFunction(typeof(IAssignmentRepository).GetMethod(nameof(IAssignmentRepository.GetModuleTotal),
+                new[] { typeof(int) }) ?? throw new InvalidOperationException());
+        
+        modelBuilder
+            .HasDbFunction(typeof(IAssignmentRepository).GetMethod(nameof(IAssignmentRepository.GetStudentGrades),
+                new[] { typeof(string) }) ?? throw new InvalidOperationException());
         
         base.OnModelCreating(modelBuilder);
     }
