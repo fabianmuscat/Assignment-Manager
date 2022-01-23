@@ -4,6 +4,7 @@ using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(AssignmentsContext))]
-    partial class AssignmentsContextModelSnapshot : ModelSnapshot
+    [Migration("20220123195548_Add Course and Module Proc")]
+    partial class AddCourseandModuleProc
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -114,9 +116,6 @@ namespace Data.Migrations
                     b.Property<byte>("SemesterNumber")
                         .HasColumnType("tinyint");
 
-                    b.Property<decimal>("Year")
-                        .HasColumnType("numeric(4,0)");
-
                     b.HasKey("ModuleId");
 
                     b.ToTable("Modules");
@@ -156,8 +155,8 @@ namespace Data.Migrations
                     b.Property<int>("AssignmentID")
                         .HasColumnType("int");
 
-                    b.Property<float>("Points")
-                        .HasColumnType("real");
+                    b.Property<byte>("Points")
+                        .HasColumnType("tinyint");
 
                     b.HasKey("StudentID", "AssignmentID");
 

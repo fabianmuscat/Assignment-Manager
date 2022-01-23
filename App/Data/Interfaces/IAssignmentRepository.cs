@@ -5,8 +5,8 @@ namespace Data.Interfaces;
 
 public interface IAssignmentRepository
 {
-    public IQueryable<Assignment> GetAssignments();
-    public IQueryable<Type> GetTypes();
+    public IQueryable<Assignment>? GetAssignments();
+    public IQueryable<Type>? GetTypes();
 
-    public IQueryable<Module> GetModules();
+    public IQueryable<Module>? GetModules();
 }
