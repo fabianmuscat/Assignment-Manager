@@ -1,18 +1,85 @@
-@model TModel
+@model Application.ViewModels.AddAssignmentViewModel
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Add Assignment";
 }
 
-<!DOCTYPE html>
+<section>
+    <h4 class="fw-bold mb-3">Add New Assignment</h4>
 
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
-<div>
-      
-</div>
-</body>
-</html>
+    <div id="form" class="position-absolute top-50 start-50 translate-middle col-8">
+        @Html.AntiForgeryToken()
+        
+        @using (Html.BeginForm("Add", "Assignments", FormMethod.Post))
+        {
+            <div class="row mb-4">
+                <div class="col-sm-12 col-md-12 col-lg-6 mb-lg-0 mb-md-3 mb-sm-3">
+                    @Html.LabelFor(assignment => assignment.Name, "Assignment Title", new { @class = "form-label" })
+                    @Html.TextBoxFor(assignment => assignment.Name, new
+                    {
+                        @class = "form-control",
+                        placeholder = "Developing a Website with Bootstrap"
+                    })
+                    @Html.ValidationMessageFor(assignment => assignment.Name, null, new { @class = "text-danger"})
+                </div>
+
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                    @Html.LabelFor(assignment => assignment.ModuleName, "Assignment Type", new { @class = "form-label" })
+                    @Html.DropDownListFor(assignment => assignment.Type, new[]
+                    {
+                        new SelectListItem("Home", "Home"),
+                        new SelectListItem("TCA", "TCA"),
+                        new SelectListItem("Practical", "Practical")
+                    }, new { @class = "form-select" })
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-sm-12 col-md-12 col-lg-4 mb-lg-0 mb-md-3 mb-sm-3 d-flex flex-column justify-content-between">
+                    <div class="row mb-2">
+                        <div class="col d-flex justify-content-between align-items-center">
+                            @Html.LabelFor(assignment => assignment.SemesterNumber, "Semester 1", new { @class = "form-label my-auto" })
+                            @Html.RadioButtonFor(assignment => assignment.SemesterNumber, 1, new { @class = "form-check-input" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col d-flex justify-content-between align-items-center">
+                            @Html.LabelFor(assignment => assignment.SemesterNumber, "Semester 2", new { @class = "form-label my-auto" })
+                            @Html.RadioButtonFor(assignment => assignment.SemesterNumber, 2, new { @class = "form-check-input" })
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(assignment => assignment.SemesterNumber, null, new { @class = "text-danger"})
+                </div>
+
+                <div class="col">
+                    @Html.LabelFor(assignment => assignment.ModuleName, "Module", new { @class = "form-label" })
+                    @Html.DropDownListFor(assignment => assignment.Type, new[]
+                    {
+                        new SelectListItem("Enterprise Programming", "Enterprise Programming"),
+                        new SelectListItem("Client-Side Scripting", "Client-Side Scripting"),
+                        new SelectListItem("Interactive Mobile Development", "Interactive Mobile Development")
+                    }, new
+                    {
+                        @class = "form-select"
+                    })
+                </div>
+            </div>
+
+            <div class="col mb-4">
+                @Html.LabelFor(assignment => assignment.MaxMark, "Marks", new { @class = "form-label" })
+                @Html.TextBoxFor(assignment => assignment.MaxMark, new
+                {
+                    @class = "form-control",
+                    type = "number",
+                    step = 1,
+                    placeholder = 0
+                })
+                
+                @Html.ValidationMessageFor(assignment => assignment.MaxMark, null, new { @class = "text-danger"})
+            </div>
+
+            <input type="submit" value="Save" class="btn btn-dark alert alert-success col-12 p-2"/>
+        }
+    </div>
+</section>

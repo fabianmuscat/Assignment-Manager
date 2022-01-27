@@ -1,7 +1,7 @@
 USE Assignments;
 GO
 
-CREATE OR ALTER FUNCTION dbo.fn_getModuleTotal(@moduleId NVARCHAR(30))
+CREATE OR ALTER FUNCTION [dbo].[GetModuleTotal](@moduleId NVARCHAR(30))
 RETURNS TINYINT
 BEGIN
     DECLARE @total TINYINT;

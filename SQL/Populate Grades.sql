@@ -1,7 +1,7 @@
 USE AssignmentsManager;
 GO
 
-CREATE OR ALTER PROC dbo.sp_populateGrades AS
+CREATE OR ALTER PROC [dbo].[PopulateGrades] AS
 BEGIN
     SET NOCOUNT ON;
 

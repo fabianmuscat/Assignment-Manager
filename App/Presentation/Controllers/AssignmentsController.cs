@@ -1,15 +1,16 @@
 ﻿using System.Diagnostics;
 using Application.Interfaces;
+using Application.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.Models;
 
 namespace Presentation.Controllers;
 
-public class HomeController : Controller
+public class AssignmentsController : Controller
 {
     private readonly IAssignmentService _assignmentService;
 
-    public HomeController(IAssignmentService assignmentService)
+    public AssignmentsController(IAssignmentService assignmentService)
     {
         _assignmentService = assignmentService;
     }
@@ -18,6 +19,18 @@ public class HomeController : Controller
     {
         return View(_assignmentService.GetAssignments());
     }
+
+    [HttpGet]
+    public IActionResult Add() => DateTime.Now.Month is >= 10 or < 2 // >= October && < February
+        ? View(new AddAssignmentViewModel { SemesterNumber = 1 })
+        : View(new AddAssignmentViewModel { SemesterNumber = 2 });
+
+    [HttpPost]
+    public IActionResult Add(AddAssignmentViewModel addModel)
+    {
+        return View();
+    }
+    
 
     public IActionResult Privacy()
     {

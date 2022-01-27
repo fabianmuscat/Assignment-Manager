@@ -3,99 +3,54 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Assignments Manager</title>
+    <title>@ViewData["Title"] | Assignments Manager</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/lib/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/Presentation.styles.css" asp-append-version="true"/>
 </head>
 
-<body class="bg-light" style="overflow-x: hidden">
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Assignments Manager</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial"/>
-                </div>
-            </div>
-        </nav>
-    </header>
-    
-    @if (Context.Request.Path.Equals("/"))  
-    {
-        <section id="actions" class="row gap-3">
-            <div class="col-2 col-sm-12 col-md-12 col-lg-2 py-3 ps-4 border-end">
-                <div class="nav flex-column nav-pills nav-pills-custom" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <a style="cursor: pointer" class="nav-link mb-3 p-3 shadow active bg-dark text-white" id="v-pills-assignments-tab" data-bs-toggle="pill" data-bs-target="#v-pills-assignments">
-                        <span class="font-weight-bold small text-uppercase">My Assignments</span>
-                    </a>
+<body class="bg-light">
+<header>
+    <div class="d-flex flex-row" style="height: 95vh;">
+        <div class="text-white bg-dark p-3">
+            <a class="navbar-brand m-0 text-white fw-bold" asp-area="" asp-controller="Assignments" asp-action="Index">Assignments Manager</a>
 
-                    <a style="cursor: pointer" class="nav-link p-3 shadow bg-primary bg-dark text-white" id="v-pills-grades-tab" data-bs-toggle="pill" data-bs-target="#v-pills-grades">
-                        <span class="font-weight-bold small text-uppercase">Grades</span>
-                    </a>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto row gap-3">
+                <li class="nav-item col-12">
+                    <a asp-area="" asp-controller="Assignments" asp-action="Add" class="nav-link bg-light text-dark active" aria-current="page"><i class="bi bi-plus"></i>Add Assignment</a>
+                </li>
+                
+                <li class="nav-item col-12">
+                    <a href="#" class="nav-link bg-light text-dark"><i class="bi bi-plus"></i>Add Module</a>
+                </li>
+                
+                <li class="nav-item col-12">
+                    <a href="#" class="nav-link bg-light text-dark"><i class="bi bi-plus"></i>Add Course</a>
+                </li>
+                
+                <li class="nav-item col-12">
+                    <a asp-area="" asp-controller="Assignments" asp-action="Index" class="nav-link bg-success text-white">My Assignments</a>
+                </li>
+                
+                <li class="nav-item col-12">
+                    <a href="#" class="nav-link link-dark bg-success text-white">Grades</a>
+                </li>
+            </ul>
+            <hr>
 
-                    <hr class="my-3">
-
-                    <a style="cursor: pointer" class="nav-link mb-3 p-3 shadow bg-light text-dark" id="v-pills-add-assignment-tab" data-bs-toggle="pill" data-bs-target="#v-pills-add-assignment">
-                        <span class="font-weight-bold small text-uppercase">Add Assigment</span>
-                    </a>
-
-                    <a style="cursor: pointer" class="nav-link mb-3 p-3 shadow bg-light text-dark" id="v-pills-add-module-tab" data-bs-toggle="pill" data-bs-target="#v-pills-add-module">
-                        <span class="font-weight-bold small text-uppercase">Add Module</span>
-                    </a>
-
-                    <a style="cursor: pointer" class="nav-link mb-3 p-3 shadow bg-light text-dark" id="v-pills-add-course-tab" data-bs-toggle="pill" data-bs-target="#v-pills-add-course">
-                        <span class="font-weight-bold small text-uppercase">Add Course</span>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="col-10 col-sm-12 col-md-12 col-lg-10 row py-3">
-                <!-- Tabs content -->
-                <div class="tab-content" id="v-pills-tabContent">
-                    <div class="tab-pane fade rounded show active row" id="v-pills-assignments">
-                        <h4 class="font-italic mb-4 row text-dark">My Assignments</h4>
-                        @await RenderSectionAsync("MyAssignments", false)
-                    </div>
-
-                    <div class="tab-pane fade rounded show row" id="v-pills-grades">
-                        <h4 class="font-italic mb-4 row text-dark">Grades</h4>
-                    </div>
-                    
-                    <div class="tab-pane fade rounded show row" id="v-pills-add-assignment">
-                        <h4 class="font-italic mb-4 row text-dark">Add Assignment</h4>
-                    </div>
-
-                    <div class="tab-pane fade rounded show row" id="v-pills-add-module">
-                        <h4 class="font-italic mb-4 row text-dark">Add Module</h4>
-                    </div>
-                    
-                    <div class="tab-pane fade rounded show row" id="v-pills-add-course">
-                        <h4 class="font-italic mb-4 row text-dark">Add Course</h4>
-                    </div>
-                </div>
-            </div>
-        </section>
-    }
-    else
-    {
-        <div class="container">
+            <partial name="_LoginPartial"/>
+        </div>
+        
+        <div class="w-100 p-4 position-relative">
             @RenderBody()
         </div>
-    }
+    </div>
+</header>
 
 <footer class="border-top footer text-white bg-dark">
-    <div class="container">
+    <div class="container-fluid">
         &copy; 2022 - Assignments Manager
     </div>
 </footer>

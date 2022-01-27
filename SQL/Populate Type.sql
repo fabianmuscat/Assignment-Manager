@@ -10,8 +10,8 @@ BEGIN
             IF EXISTS (SELECT TypeID FROM Type t)
                 THROW 60001, 'Table is not empty', 1;
 
-            INSERT INTO dbo.Type (TypeId, AssignmentType)
-            VALUES (NEWID(), 'TCA'), (NEWID(), 'Practical'), (NEWID(), 'Home');
+            INSERT INTO dbo.Type (AssignmentType)
+            VALUES ('TCA'), ('Home'), ('Practical');
 
             COMMIT TRANSACTION;
         END TRY

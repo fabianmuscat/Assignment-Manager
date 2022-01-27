@@ -2,8 +2,8 @@ namespace Application.ViewModels;
 
 public class AssignmentViewModel
 {
-    public string Name { get; set; }
-    public string ModuleName { get; set; }
+    public string? Name { get; set; }
+    public string? ModuleName { get; set; }
     public DateTime StartDate { get; set; }
     public DateTime DeadlineDate { get; set; }
     public int MaxMark { get; set; }

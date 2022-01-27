@@ -1,15 +1,15 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Domain.Models
-{
-    public class Grades
-    {
-        [Key]
-        [StringLength(2, ErrorMessage = "Grade must not have more than 2 characters")]
-        public string Grade { get; set; } = null!;
+namespace Domain.Models;
+// Resharper Disable All
 
-        public byte MinimumMark { get; set; }
-        public byte MaximumMark { get; set; }
-    }
+public class Grades
+{
+    [Key]
+    [StringLength(2, ErrorMessage = "Grade must not have more than 2 characters")]
+    public string Grade { get; set; } = null!;
+
+    public byte MinimumMark { get; set; }
+    public byte MaximumMark { get; set; }
 }
