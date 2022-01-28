@@ -1,6 +1,6 @@
 namespace Application.ViewModels;
 
-public class AssignmentViewModel
+public class Assignment
 {
     public string? Name { get; set; }
     public string? ModuleName { get; set; }
