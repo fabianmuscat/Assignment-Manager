@@ -37,6 +37,13 @@ public class AssignmentsController : Controller
         return View();
     }
 
+    public IActionResult Redirect()
+    {
+        return User.Identity is { IsAuthenticated: false }
+            ? Redirect("/Identity/Account/Login")
+            : Redirect("/Assignments/Index");
+    }
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {

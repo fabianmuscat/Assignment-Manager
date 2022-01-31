@@ -1,44 +1,63 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> _signInManager
+@inject UserManager<IdentityUser> _userManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>@ViewData["Title"] | Assignments Manager</title>
+    
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/lib/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="~/lib/yearpicker/dist/yearpicker.css">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/Presentation.styles.css" asp-append-version="true"/>
+    
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js"></script>
+    @await RenderSectionAsync("Scripts", false)
 </head>
 
 <body class="bg-light">
 <header>
     <div class="d-flex flex-row" style="height: 95vh;">
         <div class="text-white bg-dark p-3">
-            <a class="navbar-brand m-0 text-white fw-bold" asp-area="" asp-controller="Assignments" asp-action="Index">Assignments Manager</a>
-
-            <hr>
-            <ul class="nav nav-pills flex-column mb-auto row gap-3">
-                <li class="nav-item col-12">
-                    <a asp-area="" asp-controller="Assignments" asp-action="Add" class="nav-link bg-light text-dark active" aria-current="page"><i class="bi bi-plus"></i>Add Assignment</a>
-                </li>
+            @if (!_signInManager.IsSignedIn(User))
+            {
+                <a class="navbar-brand m-0 text-white fw-bold" asp-area="" asp-controller="Assignments" asp-action="Index">Assignments Manager</a>
+                <hr>
                 
-                <li class="nav-item col-12">
-                    <a href="#" class="nav-link bg-light text-dark"><i class="bi bi-plus"></i>Add Module</a>
-                </li>
+                <ul class="nav nav-pills flex-column mb-auto row gap-3">
+                    <li class="nav-item col-12">
+                        <a asp-area="" asp-controller="Assignments" asp-action="Add" class="nav-link bg-light text-dark active" aria-current="page"><i class="bi bi-plus"></i>Add Assignment</a>
+                    </li>
                 
-                <li class="nav-item col-12">
-                    <a href="#" class="nav-link bg-light text-dark"><i class="bi bi-plus"></i>Add Course</a>
-                </li>
+                    <li class="nav-item col-12">
+                        <a asp-area="" asp-controller="Modules" asp-action="Add" class="nav-link bg-light text-dark"><i class="bi bi-plus"></i>Add Module</a>
+                    </li>
                 
-                <li class="nav-item col-12">
-                    <a asp-area="" asp-controller="Assignments" asp-action="Index" class="nav-link bg-success text-white">My Assignments</a>
-                </li>
+                    <li class="nav-item col-12">
+                        <a asp-area="" asp-controller="Courses" asp-action="Add" class="nav-link bg-light text-dark"><i class="bi bi-plus"></i>Add Course</a>
+                    </li>
                 
-                <li class="nav-item col-12">
-                    <a href="#" class="nav-link link-dark bg-success text-white">Grades</a>
-                </li>
-            </ul>
-            <hr>
+                    <li class="nav-item col-12">
+                        <a asp-area="" asp-controller="Assignments" asp-action="Index" class="nav-link bg-success text-white">My Assignments</a>
+                    </li>
+                
+                    <li class="nav-item col-12">
+                        <a href="#" class="nav-link link-dark bg-success text-white">Grades</a>
+                    </li>
+                </ul>
+                <hr>
+            }
+            else
+            {
+                <span class="navbar-brand m-0 text-white fw-bold">Assignments Manager</span>
+                <hr>
+            }
 
             <partial name="_LoginPartial"/>
         </div>
@@ -54,11 +73,6 @@
         &copy; 2022 - Assignments Manager
     </div>
 </footer>
-
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="~/js/site.js" asp-append-version="true"></script>
-@await RenderSectionAsync("Scripts", false)
 
 </body>
 </html>

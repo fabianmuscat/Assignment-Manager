@@ -1,11 +1,20 @@
+using Application.Interfaces;
+using Application.ViewModels;
+using Data.Interfaces;
+
 namespace Application.Services;
 
-public class ModulesService
+public class ModuleService : IModuleService
 {
-    private readonly IAssignmentRepository _assignmentRepository;
+    private readonly IModuleRepository _moduleRepository;
 
-    public AssignmentService(IAssignmentRepository assignmentRepository)
+    public ModuleService(IModuleRepository moduleRepository)
     {
-        _assignmentRepository = assignmentRepository;
+        _moduleRepository = moduleRepository;
+    }
+
+    public IQueryable<AddModuleViewModel> AddModule()
+    {
+        throw new NotImplementedException();
     }
 }

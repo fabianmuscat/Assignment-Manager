@@ -27,6 +27,12 @@ builder.Services.AddRazorPages();
 builder.Services.AddScoped<IAssignmentRepository, AssignmentRepository>();
 builder.Services.AddScoped<IAssignmentService, AssignmentService>();
 
+builder.Services.AddScoped<IModuleRepository, ModuleRepository>();
+builder.Services.AddScoped<IModuleService, ModuleService>();
+
+builder.Services.AddScoped<ICourseRepository, CourseRepository>();
+builder.Services.AddScoped<ICourseService, CourseService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -48,7 +54,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Assignments}/{action=Index}/{id?}");
+    pattern: "{controller=Assignments}/{action=Redirect}/{id?}");
 app.MapRazorPages();
 
 app.Run();

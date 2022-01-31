@@ -1,6 +1,6 @@
 namespace Application.ViewModels;
 
-public class Assignment
+public class AssignmentViewModel
 {
     public string? Name { get; set; }
     public string? ModuleName { get; set; }
@@ -9,5 +9,5 @@ public class Assignment
     public int MaxMark { get; set; }
     public int? Marks { get; set; }
     public string? Grade { get; set; }
-    public string Type { get; set; }
+    public string? Type { get; set; }
 }

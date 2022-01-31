@@ -2,7 +2,7 @@ using Application.ViewModels;
 
 namespace Application.Interfaces;
 
-public interface IAssignmentService
+public interface IModuleService
 {
-    public IQueryable<AssignmentViewModel> GetAssignments();
+    public IQueryable<AddModuleViewModel> AddModule();
 }
