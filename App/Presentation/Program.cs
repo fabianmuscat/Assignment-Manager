@@ -5,12 +5,14 @@ using Data.Interfaces;
 using Data.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Presentation.Areas.Identity.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("AssignmentsManager");
-
+builder.Services.AddDbContext<PresentationIdentityDbContext>(options =>
+    options.UseSqlServer(connectionString));
 builder.Services.AddMvc();
 builder.Services.AddSingleton(builder.Configuration);
 

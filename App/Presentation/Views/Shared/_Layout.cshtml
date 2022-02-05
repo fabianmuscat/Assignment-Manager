@@ -22,10 +22,10 @@
 </head>
 
 <body class="bg-light">
-<header>
-    <div class="d-flex flex-row" style="height: 95vh;">
-        <div class="text-white bg-dark p-3">
-            @if (!_signInManager.IsSignedIn(User))
+<div class="d-flex flex-row" style="height: 95vh;">
+    <header class="text-white bg-dark p-3">
+        <div>
+            @if (_signInManager.IsSignedIn(User))
             {
                 <a class="navbar-brand m-0 text-white fw-bold" asp-area="" asp-controller="Assignments" asp-action="Index">Assignments Manager</a>
                 <hr>
@@ -61,12 +61,12 @@
 
             <partial name="_LoginPartial"/>
         </div>
-        
-        <div class="w-100 p-4 position-relative">
-            @RenderBody()
-        </div>
+    </header>
+    
+    <div class="w-100 p-4 position-relative">
+        @RenderBody()
     </div>
-</header>
+</div>
 
 <footer class="border-top footer text-white bg-dark">
     <div class="container-fluid">
