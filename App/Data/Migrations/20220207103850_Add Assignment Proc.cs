@@ -27,13 +27,13 @@ namespace Data.Migrations
                         END
                         GO
 
-                        CREATE OR ALTER PROC [dbo].[AddAssignment](@name NVARCHAR(100), @module NVARCHAR(50), @type NVARCHAR(20), @maxMark TINYINT, @startDate DATE, @endDate DATE) AS
+                        CREATE PROC [dbo].[AddAssignment](@name NVARCHAR(100), @module NVARCHAR(50), @semester INT, @type NVARCHAR(20), @maxMark TINYINT, @startDate DATE, @endDate DATE) AS
                         BEGIN
                             SET NOCOUNT ON;
 
                             BEGIN TRANSACTION
                                 BEGIN TRY
-                                    DECLARE @moduleId NVARCHAR(30) = (SELECT dbo.GetModuleId(@module));
+                                    DECLARE @moduleId INT = (SELECT dbo.GetModuleId(@module));
                                     IF @moduleId IS NULL
                                         THROW 51000, 'Invalid module name', 1;
 
@@ -46,9 +46,12 @@ namespace Data.Migrations
 
                                     IF @endDate < @startDate
                                         THROW 54000, 'End date cannot be before start date', 1;
+                                    
+                                    IF @semester NOT BETWEEN 1 AND 2
+                                        THROW 55000, 'Semester must be either 1 or 2', 1;
 
-                                    INSERT INTO Assignment (AssignmentName, ModuleID, MaxMark, DateIssued, DeadlineDate, TypeID)
-                                    VALUES (@name, @moduleId, @maxMark, @startDate, @endDate, @typeID);
+                                    INSERT INTO Assignment (AssignmentName, ModuleID, Semester, MaxMark, DateIssued, DeadlineDate, TypeID)
+                                    VALUES (@name, @moduleId, @semester, @maxMark, @startDate, @endDate, @typeID);
 
                                     COMMIT TRANSACTION;
                                 END TRY
@@ -57,16 +60,15 @@ namespace Data.Migrations
                                     ROLLBACK TRANSACTION;
                                     THROW;
                                 END CATCH
-                        END";
+                        END
+                        GO";
 
             migrationBuilder.Sql(proc);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.Sql("DROP PROCEDURE [dbo].[AddAssignment]");
-            migrationBuilder.Sql("DROP FUNCTION [dbo].[GetTypeId]");
-            migrationBuilder.Sql("DROP FUNCTION [dbo].[GetModuleId]");
+            migrationBuilder.Sql("DROP PROCEDURE [dbo].[AddAssigment]");
         }
     }
 }

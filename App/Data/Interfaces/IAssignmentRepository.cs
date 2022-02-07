@@ -10,7 +10,7 @@ public interface IAssignmentRepository
 
     public IQueryable<Module>? GetModules();
 
-    public void AddAssignment(string name, string module, string type, int maxMark, DateTime startDate, DateTime deadlineDate);
+    public void AddAssignment(string name, string module, string type, int semester, int maxMark, DateTime startDate, DateTime deadlineDate);
 
     public static int GetCourseId(string course) => throw new NotSupportedException();
     public static int GetModuleId(string module) => throw new NotSupportedException();

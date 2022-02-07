@@ -19,8 +19,8 @@ public class AssignmentRepository : IAssignmentRepository
 
     public IQueryable<Module>? GetModules() => _context.Modules;
     
-    public void AddAssignment(string name, string module, string type, int maxMark, DateTime startDate, DateTime deadlineDate)
-    {
-        _context.Assignments!.FromSqlRaw($"AddAssignment {name} {module} {type} {maxMark} {startDate} {deadlineDate}");
+    public void AddAssignment(string name, string module, string type, int semester, int maxMark, DateTime startDate, DateTime deadlineDate)
+    { 
+        _context.Assignments!.FromSqlRaw($"EXEC AddAssignment {name} {module} {type} {semester} {maxMark} {startDate} {deadlineDate}");
     }
 }

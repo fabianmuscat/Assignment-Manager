@@ -12,7 +12,11 @@ public class Course
 
     [Required] [StringLength(50)] public string CourseName { get; set; } = null!;
 
-    [Required] public int EnrollmentYear { get; set; }
+    [Required]
+    [Column(TypeName = "datetime2")]
+    public DateTime EnrollmentDate { get; set; }
 
-    [Required] public int FinalYear { get; set; }
+    [Required]
+    [Column(TypeName = "datetime2")]
+    public DateTime EndDate { get; set; }
 }

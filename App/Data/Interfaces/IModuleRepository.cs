@@ -5,5 +5,5 @@ namespace Data.Interfaces;
 
 public interface IModuleRepository
 {
-    public void AddModule(string module, int semesterNumber, int year);
+    public void AddModule(string module, string course, int semesterNumber, int year);
 }

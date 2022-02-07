@@ -26,31 +26,29 @@
                         @class = "form-control",
                         placeholder = "Bachelor of Science (Honours) in Software Development"
                     })
-                    @Html.ValidationMessageFor(course => course.Name, null, new { @class = "text-danger"})
-                </div>
+                    @Html.ValidationMessageFor(course => course.Name, null, new { @class = "text-danger"})</div>
             </div>
             
             <div class="row mb-4">
                 <div class="col-12">
                     @Html.Label("Course Length", "Course Length", new { @class = "form-label" })
-                    @Html.EditorFor(course => course.EnrollmentYear, new { htmlAttributes = new { @class = "form-control", type = "text" } })
+                    @Html.EditorFor(course => course.EnrollmentDates, new { htmlAttributes = new { @class = "form-control", type = "text" } })
                     
                     <script type="text/javascript">
                     $(document).ready(() => {
-                        let $enrollmentYear = $("input[name='EnrollmentYear']");
-                        $enrollmentYear.daterangepicker({
+                        $("input[name='EnrollmentDates']").daterangepicker({
                             showDropdowns: true,
-                            locale: {
-                                format: "DD/MM/YYYY",
-                                separator: " - "
-                            },
                             startDate: moment(),
-                            endDate: moment().add(2, 'years')
+                            endDate: moment().add(2, 'years'),
+                            locale: {
+                                format: "DD/MM/YYYY"
+                            },
+                            drops: "up",
                         });
                     });
                     </script>
-                    @Html.ValidationMessageFor(course => course.EnrollmentYear, null, new { @class = "text-danger"})
-                    @Html.ValidationMessageFor(course => course.FinalYear, null, new { @class = "text-danger"})
+                    
+                    @Html.ValidationMessageFor(course => course.EnrollmentDates, null, new { @class = "text-danger"})
                 </div>
             </div>
 

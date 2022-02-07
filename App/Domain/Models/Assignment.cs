@@ -17,6 +17,8 @@ public class Assignment
     [Required] [ForeignKey("Module")] public int ModuleId { get; set; }
 
     [Required] public byte MaxMark { get; set; }
+    
+    [Required] public int Semester { get; set; }
 
     [Required] public DateTime DateIssued { get; set; }
 

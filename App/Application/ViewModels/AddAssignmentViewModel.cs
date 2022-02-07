@@ -11,8 +11,7 @@ public class AddAssignmentViewModel
     [Required(AllowEmptyStrings = true, ErrorMessage = "Module Name cannot be empty")] 
     public string? ModuleName { get; set; }
 
-    [Required] public DateTime AssignmentDates { get; set; }
-    // [Required] public DateTime DeadlineDate { get; set; }
+    [Required] public string? AssignmentDates { get; set; }
     
     [Required]
     [Range(0, 100, ErrorMessage = "Mark must be between 0 and 100")]

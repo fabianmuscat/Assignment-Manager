@@ -1,4 +1,5 @@
 using Data.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Data.Repositories;
 
@@ -11,8 +12,8 @@ public class CourseRepository : ICourseRepository
         _context = context;
     }
 
-    public void AddCourse(string name, int enrollmentYear, int finalYear)
+    public void AddCourse(string name, DateTime enrollmentDate, DateTime finalDate)
     {
-        throw new NotImplementedException();
+        _context.Courses!.FromSqlRaw($"EXEC AddCourse {name} {enrollmentDate} {finalDate}");
     }
 }

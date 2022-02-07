@@ -4,6 +4,7 @@ using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(AssignmentsContext))]
-    partial class AssignmentsContextModelSnapshot : ModelSnapshot
+    [Migration("20220207100139_Date Fields (Course) (int -> datetime2)")]
+    partial class DateFieldsCourseintdatetime2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,9 +46,6 @@ namespace Data.Migrations
                         .HasColumnType("tinyint");
 
                     b.Property<int>("ModuleId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Semester")
                         .HasColumnType("int");
 
                     b.Property<int>("TypeId")

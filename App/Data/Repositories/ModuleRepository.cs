@@ -1,4 +1,5 @@
 using Data.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Data.Repositories;
 
@@ -11,8 +12,8 @@ public class ModuleRepository : IModuleRepository
         _context = context;
     }
     
-    public void AddModule(string module, int semesterNumber, int year)
+    public void AddModule(string module, string course, int semesterNumber, int year)
     {
-        throw new NotImplementedException();
+        _context.Modules!.FromSqlRaw($"EXEC AddModule {module} {course} {semesterNumber} {year}");
     }
 }

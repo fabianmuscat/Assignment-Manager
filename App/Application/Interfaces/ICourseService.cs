@@ -4,5 +4,5 @@ namespace Application.Interfaces;
 
 public interface ICourseService
 {
-    public IQueryable<AddCourseViewModel> AddCourse();
+    public void AddCourse(AddCourseViewModel course);
 }

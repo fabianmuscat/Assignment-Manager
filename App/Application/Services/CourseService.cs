@@ -13,8 +13,15 @@ public class CourseService : ICourseService
         _courseRepository = courseRepository;
     }
 
-    public IQueryable<AddCourseViewModel> AddCourse()
+    public void AddCourse(AddCourseViewModel course)
     {
-        throw new NotImplementedException();
+        var name = course.Name!.Trim();
+        var sEnrollmentDate = course.EnrollmentDates!.Split("-")[0];
+        var sEndDate = course.EnrollmentDates!.Split("-")[1];
+
+        DateTime.TryParse(sEnrollmentDate, out var enrollmentDate);
+        DateTime.TryParse(sEndDate, out var endDate);
+        
+        _courseRepository.AddCourse(name, enrollmentDate, endDate);
     }
 }

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(AssignmentsContext))]
-    [Migration("20220123195548_Add Course and Module Proc")]
-    partial class AddCourseandModuleProc
+    [Migration("20220207103238_Add Module Proc")]
+    partial class AddModuleProc
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -69,11 +69,11 @@ namespace Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("EnrollmentYear")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<int>("FinalYear")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("EnrollmentDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("CourseID");
 
@@ -116,6 +116,9 @@ namespace Data.Migrations
                     b.Property<byte>("SemesterNumber")
                         .HasColumnType("tinyint");
 
+                    b.Property<decimal>("Year")
+                        .HasColumnType("numeric(4,0)");
+
                     b.HasKey("ModuleId");
 
                     b.ToTable("Modules");
@@ -155,14 +158,31 @@ namespace Data.Migrations
                     b.Property<int>("AssignmentID")
                         .HasColumnType("int");
 
-                    b.Property<byte>("Points")
-                        .HasColumnType("tinyint");
+                    b.Property<float>("Points")
+                        .HasColumnType("real");
 
                     b.HasKey("StudentID", "AssignmentID");
 
                     b.HasIndex("AssignmentID");
 
                     b.ToTable("StudentAssignments");
+                });
+
+            modelBuilder.Entity("Domain.Models.StudentGrade", b =>
+                {
+                    b.Property<string>("AssignmentName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Grade")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ModuleName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.ToTable("StudentGrade");
                 });
 
             modelBuilder.Entity("Domain.Models.Type", b =>

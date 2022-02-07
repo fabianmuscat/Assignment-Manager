@@ -4,6 +4,7 @@ using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(AssignmentsContext))]
-    partial class AssignmentsContextModelSnapshot : ModelSnapshot
+    [Migration("20220123195548_Get Course Id Func")]
+    partial class GetCourseIdFunc
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,9 +48,6 @@ namespace Data.Migrations
                     b.Property<int>("ModuleId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Semester")
-                        .HasColumnType("int");
-
                     b.Property<int>("TypeId")
                         .HasColumnType("int");
 
@@ -70,11 +69,11 @@ namespace Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("EnrollmentYear")
+                        .HasColumnType("int");
 
-                    b.Property<DateTime>("EnrollmentDate")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("FinalYear")
+                        .HasColumnType("int");
 
                     b.HasKey("CourseID");
 
@@ -117,9 +116,6 @@ namespace Data.Migrations
                     b.Property<byte>("SemesterNumber")
                         .HasColumnType("tinyint");
 
-                    b.Property<decimal>("Year")
-                        .HasColumnType("numeric(4,0)");
-
                     b.HasKey("ModuleId");
 
                     b.ToTable("Modules");
@@ -159,31 +155,14 @@ namespace Data.Migrations
                     b.Property<int>("AssignmentID")
                         .HasColumnType("int");
 
-                    b.Property<float>("Points")
-                        .HasColumnType("real");
+                    b.Property<byte>("Points")
+                        .HasColumnType("tinyint");
 
                     b.HasKey("StudentID", "AssignmentID");
 
                     b.HasIndex("AssignmentID");
 
                     b.ToTable("StudentAssignments");
-                });
-
-            modelBuilder.Entity("Domain.Models.StudentGrade", b =>
-                {
-                    b.Property<string>("AssignmentName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Grade")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ModuleName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.ToTable("StudentGrade");
                 });
 
             modelBuilder.Entity("Domain.Models.Type", b =>
