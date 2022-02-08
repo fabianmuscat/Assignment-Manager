@@ -10,7 +10,9 @@ public class Course
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int CourseID { get; set; }
 
-    [Required] [StringLength(50)] public string CourseName { get; set; } = null!;
+    [Required] 
+    [StringLength(50)] 
+    public string CourseName { get; set; } = null!;
 
     [Required]
     [Column(TypeName = "datetime2")]
@@ -19,4 +21,6 @@ public class Course
     [Required]
     [Column(TypeName = "datetime2")]
     public DateTime EndDate { get; set; }
+
+    public virtual ICollection<Module> Modules { get; set; } = null!;
 }

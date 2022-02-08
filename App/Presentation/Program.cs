@@ -3,6 +3,7 @@ using Application.Services;
 using Data;
 using Data.Interfaces;
 using Data.Repositories;
+using Domain.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Presentation.Areas.Identity.Data;
@@ -20,7 +21,7 @@ builder.Services.AddDbContext<AssignmentsContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+builder.Services.AddDefaultIdentity<Student>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<AssignmentsContext>();
 
 builder.Services.AddControllersWithViews();
