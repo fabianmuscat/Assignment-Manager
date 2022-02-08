@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Domain.Models;
 // Resharper Disable All
-// ReSharper disable once VirtualMemberCallInConstructor
 
 public class Student : IdentityUser
 {
@@ -20,4 +19,5 @@ public class Student : IdentityUser
     public virtual ICollection<Assignment> Assignments { get; set; } = null!;
     public virtual ICollection<Module> Modules { get; set; } = null!;
     public virtual ICollection<StudentAssignment> StudentAssignments { get; set; } = null!;
+    public virtual ICollection<StudentCourse> StudentCourses { get; set; } = null!;
 }

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>9bcc519f-264e-4de3-b848-1fefadeda036.DATABASE:AssignmentsManager</OriginalElement>
+  <nodes>
+    <node x="778.7320000000001" y="1014.236">9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.AspNetRoleClaims</node>
+    <node x="350.28800000000007" y="470.228">9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.AspNetUsers</node>
+    <node x="751.7320000000001" y="819.6560000000001">9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.AspNetRoles</node>
+    <node x="366.78800000000007" y="4.2280000000000015">9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.Type</node>
+    <node x="-222.71199999999993" y="819.6560000000001">9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.Grades</node>
+    <node x="-320.71199999999993" y="357.83199999999994">9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.AspNetUserLogins</node>
+    <node x="363.78800000000007" y="160.228">9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.Assignments</node>
+    <node x="385.28800000000007" y="1014.236">9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.AspNetUserClaims</node>
+    <node x="13.996000000000038" y="819.6560000000001">9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.AspNetUserTokens</node>
+    <node x="55.03800000000007" y="4.2280000000000015">9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.Courses</node>
+    <node x="54.53800000000007" y="265.68">9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.Modules</node>
+    <node x="751.7320000000001" y="226.228">9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.StudentAssignments</node>
+    <node x="791.7320000000001" y="657.7280000000001">9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.AspNetUserRoles</node>
+    <node x="-295.71199999999993" y="142.02799999999996">9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.__EFMigrationsHistory</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.Modules" target="9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.AspNetUsers" relationship="REFERENCES">
+      <point x="0.0" y="82.0" />
+      <point x="156.53800000000007" y="655.2280000000001" />
+      <point x="-135.0" y="-40.0" />
+    </edge>
+    <edge source="9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.AspNetUserTokens" target="9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.AspNetUsers" relationship="REFERENCES">
+      <point x="108.0" y="0.0" />
+      <point x="121.78800000000007" y="879.6560000000001" />
+      <point x="121.78800000000007" y="695.2280000000001" />
+      <point x="-135.0" y="0.0" />
+    </edge>
+    <edge source="9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.AspNetUserClaims" target="9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.AspNetUsers" relationship="REFERENCES">
+      <point x="0.0" y="-60.0" />
+      <point x="0.0" y="225.0" />
+    </edge>
+    <edge source="9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.StudentAssignments" target="9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.AspNetUsers" relationship="REFERENCES">
+      <point x="0.0" y="49.0" />
+      <point x="851.2320000000001" y="675.2280000000001" />
+      <point x="135.0" y="-20.0" />
+    </edge>
+    <edge source="9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.AspNetRoleClaims" target="9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.AspNetRoles" relationship="REFERENCES">
+      <point x="-100.0" y="0.0" />
+      <point x="878.7320000000001" y="1074.2359999999999" />
+      <point x="878.7320000000001" y="879.6560000000001" />
+      <point x="127.0" y="0.0" />
+    </edge>
+    <edge source="9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.Modules" target="9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.Courses" relationship="REFERENCES">
+      <point x="0.0" y="-82.0" />
+      <point x="0.0" y="60.0" />
+    </edge>
+    <edge source="9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.Assignments" target="9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.AspNetUsers" relationship="REFERENCES">
+      <point x="0.0" y="115.0" />
+      <point x="0.0" y="-225.0" />
+    </edge>
+    <edge source="9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.AspNetUserRoles" target="9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.AspNetRoles" relationship="REFERENCES">
+      <point x="0.0" y="37.5" />
+      <point x="0.0" y="-60.0" />
+    </edge>
+    <edge source="9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.Assignments" target="9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.Type" relationship="REFERENCES">
+      <point x="0.0" y="-115.0" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.AspNetUserRoles" target="9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.AspNetUsers" relationship="REFERENCES">
+      <point x="-87.0" y="0.0" />
+      <point x="135.0" y="0.0" />
+    </edge>
+    <edge source="9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.AspNetUserLogins" target="9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.AspNetUsers" relationship="REFERENCES">
+      <point x="0.0" y="60.0" />
+      <point x="-185.71199999999993" y="675.2280000000001" />
+      <point x="-135.0" y="-20.0" />
+    </edge>
+    <edge source="9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.StudentAssignments" target="9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.Assignments" relationship="REFERENCES">
+      <point x="-99.5" y="0.0" />
+      <point x="121.5" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Orthogonal Groups" zoom="0.5910165484633569" showDependencies="false" x="838.0" y="610.5" />
+  <SelectedNodes>
+    <node>9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.AspNetRoleClaims</node>
+    <node>9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.AspNetUsers</node>
+    <node>9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.AspNetRoles</node>
+    <node>9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.Type</node>
+    <node>9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.Grades</node>
+    <node>9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.AspNetUserLogins</node>
+    <node>9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.Assignments</node>
+    <node>9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.AspNetUserClaims</node>
+    <node>9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.AspNetUserTokens</node>
+    <node>9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.Courses</node>
+    <node>9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.Modules</node>
+    <node>9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.StudentAssignments</node>
+    <node>9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.AspNetUserRoles</node>
+    <node>9bcc519f-264e-4de3-b848-1fefadeda036.TABLE:AssignmentsManager.dbo.__EFMigrationsHistory</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Columns</Category>
+    <Category>Comments</Category>
+    <Category>Key columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+

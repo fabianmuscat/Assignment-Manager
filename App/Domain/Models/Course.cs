@@ -23,4 +23,5 @@ public class Course
     public DateTime EndDate { get; set; }
 
     public virtual ICollection<Module> Modules { get; set; } = null!;
+    public virtual ICollection<StudentCourse> StudentCourses { get; set; } = null!;
 }
