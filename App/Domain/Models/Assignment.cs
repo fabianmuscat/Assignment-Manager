@@ -29,7 +29,7 @@ public class Assignment
     public virtual Type Type { get; set; } = null!;
 
     [Required] [ForeignKey("Student")] 
-    public string Id { get; set; } = null!;
+    public string StudentId { get; set; } = null!;
 
     public virtual Student Student { get; set; } = null!;
 

@@ -28,7 +28,7 @@ public class Module
     
     [Required]
     [ForeignKey("Student")]
-    public string Id { get; set; } = null!;
+    public string StudentId { get; set; } = null!;
 
     public virtual Student Student { get; set; } = null!;
 }

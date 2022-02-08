@@ -209,14 +209,14 @@ namespace Data.Migrations
                     SemesterNumber = table.Column<byte>(type: "tinyint", nullable: false),
                     Year = table.Column<decimal>(type: "numeric(4,0)", nullable: false),
                     CourseID = table.Column<int>(type: "int", nullable: false),
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    StudentId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Modules", x => x.ModuleId);
                     table.ForeignKey(
-                        name: "FK_Modules_AspNetUsers_Id",
-                        column: x => x.Id,
+                        name: "FK_Modules_AspNetUsers_StudentId",
+                        column: x => x.StudentId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -226,6 +226,28 @@ namespace Data.Migrations
                         principalTable: "Courses",
                         principalColumn: "CourseID",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "StudentCourse",
+                columns: table => new
+                {
+                    StudentId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    CourseId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_StudentCourse", x => new { x.StudentId, x.CourseId });
+                    table.ForeignKey(
+                        name: "FK_StudentCourse_AspNetUsers_StudentId",
+                        column: x => x.StudentId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_StudentCourse_Courses_CourseId",
+                        column: x => x.CourseId,
+                        principalTable: "Courses",
+                        principalColumn: "CourseID");
                 });
 
             migrationBuilder.CreateTable(
@@ -241,14 +263,14 @@ namespace Data.Migrations
                     DateIssued = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DeadlineDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     TypeId = table.Column<int>(type: "int", nullable: false),
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    StudentId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Assignments", x => x.AssignmentID);
                     table.ForeignKey(
-                        name: "FK_Assignments_AspNetUsers_Id",
-                        column: x => x.Id,
+                        name: "FK_Assignments_AspNetUsers_StudentId",
+                        column: x => x.StudentId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -264,25 +286,23 @@ namespace Data.Migrations
                 name: "StudentAssignments",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    StudentId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     AssignmentID = table.Column<int>(type: "int", nullable: false),
                     Points = table.Column<float>(type: "real", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_StudentAssignments", x => new { x.Id, x.AssignmentID });
+                    table.PrimaryKey("PK_StudentAssignments", x => new { x.StudentId, x.AssignmentID });
                     table.ForeignKey(
-                        name: "FK_StudentAssignments_AspNetUsers_Id",
-                        column: x => x.Id,
+                        name: "FK_StudentAssignments_AspNetUsers_StudentId",
+                        column: x => x.StudentId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_StudentAssignments_Assignments_AssignmentID",
                         column: x => x.AssignmentID,
                         principalTable: "Assignments",
-                        principalColumn: "AssignmentID",
-                        onDelete: ReferentialAction.NoAction);
+                        principalColumn: "AssignmentID");
                 });
 
             migrationBuilder.CreateIndex(
@@ -325,9 +345,9 @@ namespace Data.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Assignments_Id",
+                name: "IX_Assignments_StudentId",
                 table: "Assignments",
-                column: "Id");
+                column: "StudentId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Assignments_TypeId",
@@ -340,14 +360,19 @@ namespace Data.Migrations
                 column: "CourseID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Modules_Id",
+                name: "IX_Modules_StudentId",
                 table: "Modules",
-                column: "Id");
+                column: "StudentId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_StudentAssignments_AssignmentID",
                 table: "StudentAssignments",
                 column: "AssignmentID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_StudentCourse_CourseId",
+                table: "StudentCourse",
+                column: "CourseId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -377,13 +402,16 @@ namespace Data.Migrations
                 name: "StudentAssignments");
 
             migrationBuilder.DropTable(
+                name: "StudentCourse");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "Courses");
+                name: "Assignments");
 
             migrationBuilder.DropTable(
-                name: "Assignments");
+                name: "Courses");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

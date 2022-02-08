@@ -27,20 +27,40 @@ public class AssignmentsContext : IdentityDbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        // Many-to-Many Relationship (Student - Assignment)
         modelBuilder
             .Entity<StudentAssignment>()
-            .HasKey(sa => new {sa.Id, sa.AssignmentID});
+            .HasKey(sa => new {sa.StudentId, sa.AssignmentID});
         
         modelBuilder.Entity<StudentAssignment>()
             .HasOne(sa => sa.Student)
             .WithMany(s => s.StudentAssignments)
-            .HasForeignKey(sa => sa.Id);
+            .HasForeignKey(sa => sa.StudentId)
+            .OnDelete(DeleteBehavior.NoAction);
         
         modelBuilder.Entity<StudentAssignment>()
             .HasOne(sa => sa.Assignment)
             .WithMany(a => a.StudentAssignments)
-            .HasForeignKey(sa => sa.AssignmentID); ;
+            .HasForeignKey(sa => sa.AssignmentID)
+            .OnDelete(DeleteBehavior.NoAction);
 
+        // Many-to-Many Relationship (Student - Course)
+        modelBuilder
+            .Entity<StudentCourse>()
+            .HasKey(sc => new {sc.StudentId, sc.CourseId});
+        
+        modelBuilder.Entity<StudentCourse>()
+            .HasOne(sc => sc.Student)
+            .WithMany(s => s.StudentCourses)
+            .HasForeignKey(sc => sc.StudentId)
+            .OnDelete(DeleteBehavior.NoAction);;
+        
+        modelBuilder.Entity<StudentCourse>()
+            .HasOne(sc => sc.Course)
+            .WithMany(c => c.StudentCourses)
+            .HasForeignKey(sc => sc.CourseId)
+            .OnDelete(DeleteBehavior.NoAction);;
+        
         // modelBuilder.Entity<StudentGrade>().HasNoKey();
         //
         // modelBuilder
