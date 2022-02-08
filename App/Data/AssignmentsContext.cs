@@ -29,39 +29,39 @@ public class AssignmentsContext : IdentityDbContext
     {
         modelBuilder
             .Entity<StudentAssignment>()
-            .HasKey(sa => new {sa.StudentID, sa.AssignmentID});
+            .HasKey(sa => new {sa.Id, sa.AssignmentID});
         
         modelBuilder.Entity<StudentAssignment>()
             .HasOne(sa => sa.Student)
             .WithMany(s => s.StudentAssignments)
-            .HasForeignKey(sa => sa.StudentID);
+            .HasForeignKey(sa => sa.Id);
         
         modelBuilder.Entity<StudentAssignment>()
             .HasOne(sa => sa.Assignment)
             .WithMany(a => a.StudentAssignments)
-            .HasForeignKey(sa => sa.AssignmentID);
+            .HasForeignKey(sa => sa.AssignmentID); ;
 
-        modelBuilder.Entity<StudentGrade>().HasNoKey();
-
-        modelBuilder
-            .HasDbFunction(typeof(IAssignmentRepository).GetMethod(nameof(IAssignmentRepository.GetCourseId),
-                new[] { typeof(string) }) ?? throw new InvalidOperationException());
-        
-        modelBuilder
-            .HasDbFunction(typeof(IAssignmentRepository).GetMethod(nameof(IAssignmentRepository.GetModuleId),
-                new[] { typeof(string) }) ?? throw new InvalidOperationException());
-        
-        modelBuilder
-            .HasDbFunction(typeof(IAssignmentRepository).GetMethod(nameof(IAssignmentRepository.GetTypeId),
-                new[] { typeof(string) }) ?? throw new InvalidOperationException());
-        
-        modelBuilder
-            .HasDbFunction(typeof(IAssignmentRepository).GetMethod(nameof(IAssignmentRepository.GetModuleTotal),
-                new[] { typeof(int) }) ?? throw new InvalidOperationException());
-        
-        modelBuilder
-            .HasDbFunction(typeof(IAssignmentRepository).GetMethod(nameof(IAssignmentRepository.GetStudentGrades),
-                new[] { typeof(string) }) ?? throw new InvalidOperationException());
+        // modelBuilder.Entity<StudentGrade>().HasNoKey();
+        //
+        // modelBuilder
+        //     .HasDbFunction(typeof(IAssignmentRepository).GetMethod(nameof(IAssignmentRepository.GetCourseId),
+        //         new[] { typeof(string) }) ?? throw new InvalidOperationException());
+        //
+        // modelBuilder
+        //     .HasDbFunction(typeof(IAssignmentRepository).GetMethod(nameof(IAssignmentRepository.GetModuleId),
+        //         new[] { typeof(string) }) ?? throw new InvalidOperationException());
+        //
+        // modelBuilder
+        //     .HasDbFunction(typeof(IAssignmentRepository).GetMethod(nameof(IAssignmentRepository.GetTypeId),
+        //         new[] { typeof(string) }) ?? throw new InvalidOperationException());
+        //
+        // modelBuilder
+        //     .HasDbFunction(typeof(IAssignmentRepository).GetMethod(nameof(IAssignmentRepository.GetModuleTotal),
+        //         new[] { typeof(int) }) ?? throw new InvalidOperationException());
+        //
+        // modelBuilder
+        //     .HasDbFunction(typeof(IAssignmentRepository).GetMethod(nameof(IAssignmentRepository.GetStudentGrades),
+        //         new[] { typeof(string) }) ?? throw new InvalidOperationException());
         
         base.OnModelCreating(modelBuilder);
     }
