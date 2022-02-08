@@ -2,9 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Models;
-// ReSharper disable once CollectionNeverUpdated.Global
-// ReSharper disable once VirtualMemberCallInConstructor
-// ReSharper disable once ClassNeverInstantiated.Global
+// ReSharper disable all
 
 public class Assignment
 {
@@ -12,7 +10,7 @@ public class Assignment
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int AssignmentID { get; set; }
 
-    [Required] public string? AssignmentName { get; set; }
+    [Required] public string AssignmentName { get; set; } = null!;
 
     [Required] [ForeignKey("Module")] public int ModuleId { get; set; }
 
@@ -24,12 +22,16 @@ public class Assignment
 
     [Required] public DateTime DeadlineDate { get; set; }
 
-    [Required] [ForeignKey("Type")] public int TypeId { get; set; }
+    [Required] 
+    [ForeignKey("Type")] 
+    public int TypeId { get; set; }
 
-    public virtual ICollection<StudentAssignment> StudentAssignments { get; set; }
+    public virtual Type Type { get; set; } = null!;
 
-    private Assignment()
-    {
-        StudentAssignments = new List<StudentAssignment>();
-    }
+    [Required] [ForeignKey("Student")] 
+    public string Id { get; set; } = null!;
+
+    public virtual Student Student { get; set; } = null!;
+
+    public virtual ICollection<StudentAssignment> StudentAssignments { get; set; } = null!;
 }

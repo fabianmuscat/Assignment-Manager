@@ -11,6 +11,7 @@ public class Type
     public int TypeId { get; set; }
 
     [Required]
-    [StringLength(20, ErrorMessage = "Assignment Type cannot have more than 20 characters")]
-    public string? AssignmentType { get; set; }
+    public string AssignmentType { get; set; } = null!;
+
+    public virtual ICollection<Assignment> Assignments { get; set; } = null!;
 }

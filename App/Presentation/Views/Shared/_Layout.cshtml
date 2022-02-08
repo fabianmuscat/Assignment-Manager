@@ -1,6 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> _signInManager
-@inject UserManager<IdentityUser> _userManager
+@using Domain.Models
+@inject SignInManager<Student> _signInManager
+@inject UserManager<Student> _userManager
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +25,7 @@
 </head>
 
 <body class="bg-light">
-<div class="d-flex flex-row" style="height: 95vh;">
+<div class="d-flex flex-row" style="height: 93vh;">
     <header class="text-white bg-dark p-3">
         <div>
             @if (_signInManager.IsSignedIn(User))

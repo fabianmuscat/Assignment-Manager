@@ -10,7 +10,9 @@ public class Module
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int ModuleId { get; set; }
 
-    [Required] [StringLength(50)] public string? ModuleName { get; set; }
+    [Required] 
+    [StringLength(50)] 
+    public string ModuleName { get; set; } = null!;
 
     [Required] public byte SemesterNumber { get; set; }
     
@@ -18,5 +20,15 @@ public class Module
     [Column(TypeName = "numeric(4,0)")]
     public int Year { get; set; }
 
-    [Required] [ForeignKey("Course")] public int CourseID { get; set; }
+    [Required] 
+    [ForeignKey("Course")] 
+    public int CourseID { get; set; }
+
+    public virtual Course Course { get; set; } = null!;
+    
+    [Required]
+    [ForeignKey("Student")]
+    public string Id { get; set; } = null!;
+
+    public virtual Student Student { get; set; } = null!;
 }

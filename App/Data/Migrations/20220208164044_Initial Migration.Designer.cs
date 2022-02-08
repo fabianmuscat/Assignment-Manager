@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(AssignmentsContext))]
-    [Migration("20220123193956_Get Module Total Func")]
-    partial class GetModuleTotalFunc
+    [Migration("20220208164044_Initial Migration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -42,16 +42,27 @@ namespace Data.Migrations
                     b.Property<DateTime>("DeadlineDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Id")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<byte>("MaxMark")
                         .HasColumnType("tinyint");
 
                     b.Property<int>("ModuleId")
                         .HasColumnType("int");
 
+                    b.Property<int>("Semester")
+                        .HasColumnType("int");
+
                     b.Property<int>("TypeId")
                         .HasColumnType("int");
 
                     b.HasKey("AssignmentID");
+
+                    b.HasIndex("Id");
+
+                    b.HasIndex("TypeId");
 
                     b.ToTable("Assignments");
                 });
@@ -69,11 +80,11 @@ namespace Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("EnrollmentYear")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<int>("FinalYear")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("EnrollmentDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("CourseID");
 
@@ -108,6 +119,10 @@ namespace Data.Migrations
                     b.Property<int>("CourseID")
                         .HasColumnType("int");
 
+                    b.Property<string>("Id")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("ModuleName")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -116,49 +131,30 @@ namespace Data.Migrations
                     b.Property<byte>("SemesterNumber")
                         .HasColumnType("tinyint");
 
+                    b.Property<decimal>("Year")
+                        .HasColumnType("numeric(4,0)");
+
                     b.HasKey("ModuleId");
+
+                    b.HasIndex("CourseID");
+
+                    b.HasIndex("Id");
 
                     b.ToTable("Modules");
                 });
 
-            modelBuilder.Entity("Domain.Models.Student", b =>
-                {
-                    b.Property<string>("StudentID")
-                        .HasMaxLength(8)
-                        .HasColumnType("nvarchar(8)");
-
-                    b.Property<int>("CourseID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SchoolEmail")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("StudentID");
-
-                    b.ToTable("Students");
-                });
-
             modelBuilder.Entity("Domain.Models.StudentAssignment", b =>
                 {
-                    b.Property<string>("StudentID")
-                        .HasColumnType("nvarchar(8)");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AssignmentID")
                         .HasColumnType("int");
 
-                    b.Property<byte>("Points")
-                        .HasColumnType("tinyint");
+                    b.Property<float>("Points")
+                        .HasColumnType("real");
 
-                    b.HasKey("StudentID", "AssignmentID");
+                    b.HasKey("Id", "AssignmentID");
 
                     b.HasIndex("AssignmentID");
 
@@ -175,8 +171,7 @@ namespace Data.Migrations
 
                     b.Property<string>("AssignmentType")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("TypeId");
 
@@ -247,6 +242,10 @@ namespace Data.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -298,6 +297,8 @@ namespace Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -385,6 +386,63 @@ namespace Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Domain.Models.Student", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IDCard")
+                        .HasMaxLength(8)
+                        .HasColumnType("nvarchar(8)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasDiscriminator().HasValue("Student");
+                });
+
+            modelBuilder.Entity("Domain.Models.Assignment", b =>
+                {
+                    b.HasOne("Domain.Models.Student", "Student")
+                        .WithMany("Assignments")
+                        .HasForeignKey("Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Models.Type", "Type")
+                        .WithMany("Assignments")
+                        .HasForeignKey("TypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Student");
+
+                    b.Navigation("Type");
+                });
+
+            modelBuilder.Entity("Domain.Models.Module", b =>
+                {
+                    b.HasOne("Domain.Models.Course", "Course")
+                        .WithMany("Modules")
+                        .HasForeignKey("CourseID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Models.Student", "Student")
+                        .WithMany("Modules")
+                        .HasForeignKey("Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+
+                    b.Navigation("Student");
+                });
+
             modelBuilder.Entity("Domain.Models.StudentAssignment", b =>
                 {
                     b.HasOne("Domain.Models.Assignment", "Assignment")
@@ -395,7 +453,7 @@ namespace Data.Migrations
 
                     b.HasOne("Domain.Models.Student", "Student")
                         .WithMany("StudentAssignments")
-                        .HasForeignKey("StudentID")
+                        .HasForeignKey("Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -460,8 +518,22 @@ namespace Data.Migrations
                     b.Navigation("StudentAssignments");
                 });
 
+            modelBuilder.Entity("Domain.Models.Course", b =>
+                {
+                    b.Navigation("Modules");
+                });
+
+            modelBuilder.Entity("Domain.Models.Type", b =>
+                {
+                    b.Navigation("Assignments");
+                });
+
             modelBuilder.Entity("Domain.Models.Student", b =>
                 {
+                    b.Navigation("Assignments");
+
+                    b.Navigation("Modules");
+
                     b.Navigation("StudentAssignments");
                 });
 #pragma warning restore 612, 618

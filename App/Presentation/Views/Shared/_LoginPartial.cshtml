@@ -1,12 +1,14 @@
 @using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> _signInManager
-@inject UserManager<IdentityUser> _userManager
+@using Domain.Models
+@using System.Security.Claims
+@inject SignInManager<Student> _signInManager
+@inject UserManager<Student> _userManager
 
 <ul class="navbar-nav">
     @if (_signInManager.IsSignedIn(User))
     {
         <li class="nav-item">
-            <a class="fw-bold nav-link text-light" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
+            <a class="fw-bold nav-link text-light" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello, <span class="fw-bold">@(((ClaimsIdentity)User.Identity!).FindFirst("FullName")!.Value)</span>!</a>
         </li>
         <li class="nav-item">
             <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Redirect", "Assignments", new { area = "" })">
