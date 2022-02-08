@@ -13,14 +13,26 @@ public class AssignmentRepository : IAssignmentRepository
     {
         _context = context;
     }
-    
-    public IQueryable<Assignment>? GetAssignments() => _context.Assignments;
-    public IQueryable<Type>? GetTypes() => _context.Type;
 
-    public IQueryable<Module>? GetModules() => _context.Modules;
-    
-    public void AddAssignment(string name, string module, string type, int semester, int maxMark, DateTime startDate, DateTime deadlineDate)
-    { 
-        _context.Assignments!.FromSqlRaw($"EXEC AddAssignment {name} {module} {type} {semester} {maxMark} {startDate} {deadlineDate}");
+    public IQueryable<Assignment>? GetAssignments()
+    {
+        return _context.Assignments;
+    }
+
+    public IQueryable<Type>? GetTypes()
+    {
+        return _context.Type;
+    }
+
+    public IQueryable<Module>? GetModules()
+    {
+        return _context.Modules;
+    }
+
+    public void AddAssignment(string name, string module, string type, int semester, int maxMark, DateTime startDate,
+        DateTime deadlineDate)
+    {
+        _context.Assignments!.FromSqlRaw(
+            $"EXEC AddAssignment {name} {module} {type} {semester} {maxMark} {startDate} {deadlineDate}");
     }
 }

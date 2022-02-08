@@ -1,9 +1,8 @@
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Models;
-// Resharper Disable All
 
+// Resharper Disable All
 public class Grades
 {
     [Key]

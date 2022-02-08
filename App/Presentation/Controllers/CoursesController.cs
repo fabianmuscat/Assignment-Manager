@@ -19,14 +19,18 @@ public class CoursesController : Controller
     {
         return View();
     }
-    
+
     [HttpPost]
     public IActionResult Add(AddCourseViewModel addModel)
     {
         var addForm = new List<FormControl>
         {
-            new() { Value = addModel.Name, Error = "Course Name cannot be empty", Validator = Validators.Required},
-            new() { Value = addModel.EnrollmentDates, Error = "Enrollment Dates cannot be empty", Validator = Validators.Required}
+            new() { Value = addModel.Name, Error = "Course Name cannot be empty", Validator = Validators.Required },
+            new()
+            {
+                Value = addModel.EnrollmentDates, Error = "Enrollment Dates cannot be empty",
+                Validator = Validators.Required
+            }
         };
 
         dynamic form = Utils.ValidateForm(addForm);
@@ -35,7 +39,7 @@ public class CoursesController : Controller
             ViewBag.Error = form.error;
             return View();
         }
-        
+
         _courseService.AddCourse(addModel);
         return View();
     }

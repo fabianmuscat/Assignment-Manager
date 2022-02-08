@@ -21,7 +21,7 @@ public class CourseService : ICourseService
 
         DateTime.TryParse(sEnrollmentDate, out var enrollmentDate);
         DateTime.TryParse(sEndDate, out var endDate);
-        
+
         _courseRepository.AddCourse(name, enrollmentDate, endDate);
     }
 }

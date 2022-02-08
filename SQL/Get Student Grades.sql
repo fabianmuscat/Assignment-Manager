@@ -1,7 +1,10 @@
-USE Assignments;
+USE
+Assignments;
 GO
 
-CREATE OR ALTER FUNCTION [dbo].[GetStudentsGrades](@moduleId NVARCHAR(30))
+CREATE
+OR ALTER FUNCTION
+[dbo].[GetStudentsGrades](@moduleId NVARCHAR(30))
 RETURNS TABLE
 RETURN (SELECT
                m.ModuleName,

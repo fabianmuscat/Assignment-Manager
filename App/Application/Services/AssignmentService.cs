@@ -1,7 +1,6 @@
 using Application.Interfaces;
 using Application.ViewModels;
 using Data.Interfaces;
-using Domain.Models;
 
 namespace Application.Services;
 
@@ -21,15 +20,20 @@ public class AssignmentService : IAssignmentService
             .Select(assignment => new AssignmentViewModel
             {
                 Name = assignment.AssignmentName,
-                ModuleName = _assignmentRepository.GetModules()!.FirstOrDefault(m => m.ModuleId == assignment.ModuleId) != null ? 
-                    _assignmentRepository.GetModules()!.FirstOrDefault(m => m.ModuleId == assignment.ModuleId)!.ModuleName : "",
+                ModuleName =
+                    _assignmentRepository.GetModules()!.FirstOrDefault(m => m.ModuleId == assignment.ModuleId) != null
+                        ? _assignmentRepository.GetModules()!.FirstOrDefault(m => m.ModuleId == assignment.ModuleId)!
+                            .ModuleName
+                        : "",
                 StartDate = assignment.DateIssued,
                 DeadlineDate = assignment.DeadlineDate,
                 Grade = "A",
                 Marks = 21,
                 MaxMark = assignment.MaxMark,
-                Type = (_assignmentRepository.GetTypes()!.FirstOrDefault(a => a.TypeId == assignment.TypeId) != null ? 
-                    _assignmentRepository.GetTypes()!.FirstOrDefault(a => a.TypeId == assignment.TypeId)!.AssignmentType : "")!
+                Type = (_assignmentRepository.GetTypes()!.FirstOrDefault(a => a.TypeId == assignment.TypeId) != null
+                    ? _assignmentRepository.GetTypes()!.FirstOrDefault(a => a.TypeId == assignment.TypeId)!
+                        .AssignmentType
+                    : "")!
             });
     }
 }
