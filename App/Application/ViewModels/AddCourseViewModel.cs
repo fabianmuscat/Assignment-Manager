@@ -9,9 +9,7 @@ public class AddCourseViewModel
 
     [Required(ErrorMessage = "Enrollment Year cannot be empty")]
     public string? EnrollmentDates { get; set; }
-
-    // public int EnrollmentYear { get; set; }
-    //
-    // [Required(ErrorMessage = "End Year cannot be empty")]
-    // public int FinalYear { get; set; }
+    
+    [Required] 
+    public string? User { get; set; }
 }

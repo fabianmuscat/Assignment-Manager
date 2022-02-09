@@ -1,10 +1,12 @@
 using Application.Interfaces;
 using Application.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.Models;
 
 namespace Presentation.Controllers;
 
+[Authorize]
 public class CoursesController : Controller
 {
     private readonly ICourseService _courseService;
@@ -26,11 +28,7 @@ public class CoursesController : Controller
         var addForm = new List<FormControl>
         {
             new() { Value = addModel.Name, Error = "Course Name cannot be empty", Validator = Validators.Required },
-            new()
-            {
-                Value = addModel.EnrollmentDates, Error = "Enrollment Dates cannot be empty",
-                Validator = Validators.Required
-            }
+            new() { Value = addModel.EnrollmentDates, Error = "Enrollment Dates cannot be empty", Validator = Validators.Required }
         };
 
         dynamic form = Utils.ValidateForm(addForm);
@@ -40,7 +38,8 @@ public class CoursesController : Controller
             return View();
         }
 
-        _courseService.AddCourse(addModel);
+        addModel.User = User.Identity!.Name;
+        ViewBag.Error = _courseService.AddCourse(addModel);
         return View();
     }
 }

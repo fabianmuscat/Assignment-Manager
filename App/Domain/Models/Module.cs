@@ -10,7 +10,7 @@ public class Module
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int ModuleId { get; set; }
 
-    [Required] [StringLength(50)] public string ModuleName { get; set; } = null!;
+    [Required] [StringLength(255)] public string ModuleName { get; set; } = null!;
 
     [Required] public byte SemesterNumber { get; set; }
 
@@ -21,8 +21,6 @@ public class Module
     [Required] [ForeignKey("Course")] public int CourseID { get; set; }
 
     public virtual Course Course { get; set; } = null!;
-
-    [Required] [ForeignKey("Student")] public string StudentId { get; set; } = null!;
-
-    public virtual Student Student { get; set; } = null!;
+    
+    public virtual ICollection<StudentModule> StudentModules { get; set; } = null!;
 }

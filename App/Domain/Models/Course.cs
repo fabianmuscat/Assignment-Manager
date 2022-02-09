@@ -10,7 +10,7 @@ public class Course
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int CourseID { get; set; }
 
-    [Required] [StringLength(50)] public string CourseName { get; set; } = null!;
+    [Required] [StringLength(255)] public string CourseName { get; set; } = null!;
 
     [Required]
     [Column(TypeName = "datetime2")]

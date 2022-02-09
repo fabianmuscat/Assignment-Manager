@@ -12,13 +12,14 @@ public class AssignmentsContext : IdentityDbContext
     {
     }
 
-    public DbSet<Grades>? Grades { get; set; }
-    public DbSet<Type>? Type { get; set; }
-    public DbSet<Course>? Courses { get; set; }
-    public DbSet<Module>? Modules { get; set; }
-    public DbSet<Student>? Students { get; set; }
-    public DbSet<Assignment>? Assignments { get; set; }
-    public DbSet<StudentAssignment>? StudentAssignments { get; set; }
+    public DbSet<Grades> Grades { get; set; } = null!;
+    public DbSet<Type> Type { get; set; } = null!;
+    public DbSet<Course> Courses { get; set; } = null!;
+    public DbSet<Module> Modules { get; set; } = null!;
+    public DbSet<Student> Students { get; set; } = null!;
+    public DbSet<Assignment> Assignments { get; set; } = null!;
+    public DbSet<StudentAssignment> StudentAssignments { get; set; } = null!;
+    public DbSet<StudentCourse> StudentCourses { get; set; } = null!;
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -54,37 +55,43 @@ public class AssignmentsContext : IdentityDbContext
             .WithMany(s => s.StudentCourses)
             .HasForeignKey(sc => sc.StudentId)
             .OnDelete(DeleteBehavior.NoAction);
-        ;
 
         modelBuilder.Entity<StudentCourse>()
             .HasOne(sc => sc.Course)
             .WithMany(c => c.StudentCourses)
             .HasForeignKey(sc => sc.CourseId)
             .OnDelete(DeleteBehavior.NoAction);
-        ;
+        
+        // Many-to-Many Relationship (Student - Module)
+        modelBuilder
+            .Entity<StudentModule>()
+            .HasKey(sm => new { sm.StudentId, sm.ModuleId });
 
-        // modelBuilder.Entity<StudentGrade>().HasNoKey();
-        //
-        // modelBuilder
-        //     .HasDbFunction(typeof(IAssignmentRepository).GetMethod(nameof(IAssignmentRepository.GetCourseId),
-        //         new[] { typeof(string) }) ?? throw new InvalidOperationException());
-        //
-        // modelBuilder
-        //     .HasDbFunction(typeof(IAssignmentRepository).GetMethod(nameof(IAssignmentRepository.GetModuleId),
-        //         new[] { typeof(string) }) ?? throw new InvalidOperationException());
-        //
-        // modelBuilder
-        //     .HasDbFunction(typeof(IAssignmentRepository).GetMethod(nameof(IAssignmentRepository.GetTypeId),
-        //         new[] { typeof(string) }) ?? throw new InvalidOperationException());
-        //
-        // modelBuilder
-        //     .HasDbFunction(typeof(IAssignmentRepository).GetMethod(nameof(IAssignmentRepository.GetModuleTotal),
-        //         new[] { typeof(int) }) ?? throw new InvalidOperationException());
-        //
-        // modelBuilder
-        //     .HasDbFunction(typeof(IAssignmentRepository).GetMethod(nameof(IAssignmentRepository.GetStudentGrades),
-        //         new[] { typeof(string) }) ?? throw new InvalidOperationException());
+        modelBuilder.Entity<StudentModule>()
+            .HasOne(sm => sm.Student)
+            .WithMany(s => s.StudentModules)
+            .HasForeignKey(sm => sm.StudentId)
+            .OnDelete(DeleteBehavior.NoAction);
 
+        modelBuilder.Entity<StudentModule>()
+            .HasOne(sm => sm.Module)
+            .WithMany(m => m.StudentModules)
+            .HasForeignKey(sm => sm.ModuleId)
+            .OnDelete(DeleteBehavior.NoAction);
+
+        // Unique Fields
+        modelBuilder.Entity<Course>()
+            .HasIndex(c => c.CourseName)
+            .IsUnique();
+        
+        modelBuilder.Entity<Module>()
+            .HasIndex(m => m.ModuleName)
+            .IsUnique();
+        
+        modelBuilder.Entity<Assignment>()
+            .HasIndex(a => a.AssignmentName)
+            .IsUnique();
+        
         base.OnModelCreating(modelBuilder);
     }
 }
