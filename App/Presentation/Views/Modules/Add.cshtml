@@ -15,7 +15,7 @@
             <div class="row mb-4">
                 <div class="col-12">
                     @Html.LabelFor(assignment => assignment.CourseName, "Course", new { @class = "form-label" })
-                    @Html.DropDownListFor(assignment => assignment.CourseName, ViewBag.Courses as SelectListItem[], new { @class = "form-select" })
+                    @Html.DropDownListFor(assignment => assignment.CourseName, ViewBag.Courses as List<SelectListItem>, new { @class = "form-select" })
                 </div>
             </div>
 
@@ -32,7 +32,7 @@
 
                 <div class="col-sm-12 col-md-12 col-lg-6">
                     @Html.LabelFor(assignment => assignment.Year, "Year", new { @class = "form-label" })
-                    @Html.DropDownListFor(assignment => assignment.Year, ViewBag.Years as SelectListItem[], new { @class = "form-select" })
+                    @Html.DropDownListFor(assignment => assignment.Year, ViewBag.Years as List<SelectListItem>, new { @class = "form-select" })
                 </div>
             </div>
 

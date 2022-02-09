@@ -14,17 +14,17 @@ public class AssignmentRepository : IAssignmentRepository
         _context = context;
     }
 
-    public IQueryable<Assignment>? GetAssignments()
+    public IQueryable<Assignment> GetAssignments()
     {
         return _context.Assignments;
     }
 
-    public IQueryable<Type>? GetTypes()
+    public IQueryable<Type> GetTypes()
     {
         return _context.Type;
     }
 
-    public IQueryable<Module>? GetModules()
+    public IQueryable<Module> GetModules()
     {
         return _context.Modules;
     }

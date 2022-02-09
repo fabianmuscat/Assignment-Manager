@@ -4,5 +4,6 @@ namespace Application.Interfaces;
 
 public interface ICourseService
 {
-    public void AddCourse(AddCourseViewModel course);
+    public string AddCourse(AddCourseViewModel course);
+    public Dictionary<CourseViewModel, int> GetCourses(string user);
 }

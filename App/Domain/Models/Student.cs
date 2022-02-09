@@ -17,4 +17,5 @@ public class Student : IdentityUser
     public virtual ICollection<Module> Modules { get; set; } = null!;
     public virtual ICollection<StudentAssignment> StudentAssignments { get; set; } = null!;
     public virtual ICollection<StudentCourse> StudentCourses { get; set; } = null!;
+    public virtual ICollection<StudentModule> StudentModules { get; set; } = null!;
 }

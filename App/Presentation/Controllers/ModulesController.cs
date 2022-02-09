@@ -1,28 +1,42 @@
 using System.Diagnostics;
+using Application.Interfaces;
 using Application.ViewModels;
+using Castle.Core.Internal;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Presentation.Models;
 
 namespace Presentation.Controllers;
 
+[Authorize]
 public class ModulesController : Controller
 {
+    private readonly ICourseService _courseService;
+    private readonly IModuleService _moduleService;
+
+    public ModulesController(ICourseService courseService, IModuleService moduleService)
+    {
+        _courseService = courseService;
+        _moduleService = moduleService;
+    }
+
     [HttpGet]
     public IActionResult Add()
     {
-        ViewBag.Years = new[]
-        {
-            new SelectListItem("Year 1", "1"),
-            new SelectListItem("Year 2", "2"),
-            new SelectListItem("Year 3", "3")
-        };
+        var courses = _courseService.GetCourses(User.Identity!.Name!);
+        if (courses.IsNullOrEmpty())
+            RedirectToAction("Add", "Courses");
 
-        ViewBag.Courses = new[]
+        ViewBag.Years = new List<SelectListItem>();
+        ViewBag.Courses = new List<SelectListItem>();
+        foreach (var (course, years) in courses)
         {
-            new SelectListItem("BSc in Software", "BSc in Software"),
-            new SelectListItem("BSc in Multimedia", "BSc in Multimedia")
-        };
+            for (var year = 1; year <= years; year++)
+                ViewBag.Years.Add(new SelectListItem($"Year {year}", year.ToString()));    
+            
+            ViewBag.Courses.Add(new SelectListItem(course.CourseName, course.CourseName));
+        }
 
         return View(new AddModuleViewModel { SemesterNumber = DateTime.Now.Month is >= 10 or < 2 ? 1 : 2 });
     }

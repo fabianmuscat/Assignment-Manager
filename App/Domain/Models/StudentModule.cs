@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Domain.Models;
 
 // Resharper Disable All
-public class StudentAssignment
+public class StudentModule
 {
     [Key]
     [Required] [ForeignKey("Student")] public string StudentId { get; set; } = null!;
@@ -12,9 +12,7 @@ public class StudentAssignment
     public virtual Student Student { get; set; } = null!;
 
     [Key]
-    [Required] [ForeignKey("Assignment")] public int AssignmentID { get; set; }
+    [Required] [ForeignKey("Module")] public int ModuleId { get; set; }
 
-    public virtual Assignment Assignment { get; set; } = null!;
-
-    [Required] public float Points { get; set; }
+    public virtual Module Module { get; set; } = null!;
 }

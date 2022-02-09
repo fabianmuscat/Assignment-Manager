@@ -10,7 +10,7 @@ public class Assignment
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int AssignmentID { get; set; }
 
-    [Required] public string AssignmentName { get; set; } = null!;
+    [Required] [StringLength(255)] public string AssignmentName { get; set; } = null!;
 
     [Required] [ForeignKey("Module")] public int ModuleId { get; set; }
 
@@ -25,10 +25,6 @@ public class Assignment
     [Required] [ForeignKey("Type")] public int TypeId { get; set; }
 
     public virtual Type Type { get; set; } = null!;
-
-    [Required] [ForeignKey("Student")] public string StudentId { get; set; } = null!;
-
-    public virtual Student Student { get; set; } = null!;
 
     public virtual ICollection<StudentAssignment> StudentAssignments { get; set; } = null!;
 }
