@@ -14,23 +14,26 @@ public class AssignmentsController : Controller
     {
         _assignmentService = assignmentService;
     }
-    
+
     public IActionResult Index()
     {
         return View(_assignmentService.GetAssignments());
     }
 
     [HttpGet]
-    public IActionResult Add() => DateTime.Now.Month is >= 10 or < 2 // >= October && < February
-        ? View(new AddAssignmentViewModel { SemesterNumber = 1 })
-        : View(new AddAssignmentViewModel { SemesterNumber = 2 });
+    public IActionResult Add()
+    {
+        return DateTime.Now.Month is >= 10 or < 2 // >= October && < February
+            ? View(new AddAssignmentViewModel { SemesterNumber = 1 })
+            : View(new AddAssignmentViewModel { SemesterNumber = 2 });
+    }
 
     [HttpPost]
     public IActionResult Add(AddAssignmentViewModel addModel)
     {
         return View();
     }
-    
+
 
     public IActionResult Privacy()
     {

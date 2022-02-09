@@ -1,0 +1,26 @@
+@using System.Security.Claims
+@using Domain.Models
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<Student> _signInManager
+@inject UserManager<Student> _userManager
+
+@if (_signInManager.IsSignedIn(User))
+{
+    <li class="border-top">
+        <a class="fs-5" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello, @(((ClaimsIdentity)User.Identity!).FindFirst("FullName")!.Value)!</a>
+    </li>
+    <li>
+        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Redirect", "Assignments", new { area = "" })">
+            <button type="submit" class="nav-link btn btn-link text-light p-0 fs-5">Logout</button>
+        </form>
+    </li>
+}
+else
+{
+    <li>
+        <a class="fs-5" asp-area="Identity" asp-page="/Account/Register">Register</a>
+    </li>
+    <li>
+        <a class="fs-5" asp-area="Identity" asp-page="/Account/Login">Login</a>
+    </li>
+}

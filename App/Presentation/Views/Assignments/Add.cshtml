@@ -4,18 +4,16 @@
     ViewData["Title"] = "Add Assignment";
 }
 
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-@section Scripts {
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-}
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
 <section>
     <h4 class="fw-bold mb-3">@ViewData["Title"]</h4>
 
     <div id="form" class="position-absolute top-50 start-50 translate-middle col-8">
         @Html.AntiForgeryToken()
-        
+
         @using (Html.BeginForm("Add", "Assignments", FormMethod.Post))
         {
             <div class="row mb-4">
@@ -26,7 +24,7 @@
                         @class = "form-control",
                         placeholder = "Developing a Website with Bootstrap"
                     })
-                    @Html.ValidationMessageFor(assignment => assignment.Name, null, new { @class = "text-danger"})
+                    @Html.ValidationMessageFor(assignment => assignment.Name, null, new { @class = "text-danger" })
                 </div>
 
                 <div class="col-sm-12 col-md-12 col-lg-6">
@@ -55,7 +53,7 @@
                             @Html.RadioButtonFor(assignment => assignment.SemesterNumber, 2, new { @class = "form-check-input" })
                         </div>
                     </div>
-                    @Html.ValidationMessageFor(assignment => assignment.SemesterNumber, null, new { @class = "text-danger"})
+                    @Html.ValidationMessageFor(assignment => assignment.SemesterNumber, null, new { @class = "text-danger" })
                 </div>
 
                 <div class="col">
@@ -81,10 +79,10 @@
                     step = 1,
                     placeholder = 0
                 })
-                
-                @Html.ValidationMessageFor(assignment => assignment.MaxMark, null, new { @class = "text-danger"})
+
+                @Html.ValidationMessageFor(assignment => assignment.MaxMark, null, new { @class = "text-danger" })
             </div>
-            
+
             <div class="col mb-4">
                 @Html.Label("AssignmentDates", "Date", new { @class = "form-label" })
                 @Html.EditorFor(assignment => assignment.AssignmentDates, new { htmlAttributes = new { @class = "form-control", type = "text" } })
@@ -103,7 +101,7 @@
                 });
                 </script>
             </div>
-            
+
             <input type="submit" value="Save" class="btn btn-success alert alert-success col-12 p-2"/>
         }
     </div>

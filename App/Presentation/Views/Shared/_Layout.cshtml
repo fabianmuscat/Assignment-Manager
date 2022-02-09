@@ -1,5 +1,5 @@
-﻿@using Microsoft.AspNetCore.Identity
-@using Domain.Models
+﻿@using Domain.Models
+@using Microsoft.AspNetCore.Identity
 @inject SignInManager<Student> _signInManager
 @inject UserManager<Student> _userManager
 
@@ -9,15 +9,16 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>@ViewData["Title"] | Assignments Manager</title>
-    
+
     <partial name="_Favicons"/>
-    
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/lib/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="~/lib/yearpicker/dist/yearpicker.css">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/Presentation.styles.css" asp-append-version="true"/>
-    
+    <link rel="stylesheet" href="~/css/hamburger-menu.css" >
+
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js"></script>
@@ -26,30 +27,30 @@
 
 <body class="bg-light">
 <div class="d-flex flex-row" style="height: 93vh;">
-    <header class="text-white bg-dark p-3">
+    <header class="d-none d-lg-block text-white bg-dark p-3">
         <div>
             @if (_signInManager.IsSignedIn(User))
             {
                 <a class="navbar-brand m-0 text-white fw-bold" asp-area="" asp-controller="Assignments" asp-action="Index">Assignments Manager</a>
                 <hr>
-                
+                    
                 <ul class="nav nav-pills flex-column mb-auto row gap-3">
                     <li class="nav-item col-12">
                         <a asp-area="" asp-controller="Assignments" asp-action="Add" class="nav-link bg-light text-dark active" aria-current="page"><i class="bi bi-plus"></i>Add Assignment</a>
                     </li>
-                
+                    
                     <li class="nav-item col-12">
                         <a asp-area="" asp-controller="Modules" asp-action="Add" class="nav-link bg-light text-dark"><i class="bi bi-plus"></i>Add Module</a>
                     </li>
-                
+                    
                     <li class="nav-item col-12">
                         <a asp-area="" asp-controller="Courses" asp-action="Add" class="nav-link bg-light text-dark"><i class="bi bi-plus"></i>Add Course</a>
                     </li>
-                
+                    
                     <li class="nav-item col-12">
                         <a asp-area="" asp-controller="Assignments" asp-action="Index" class="nav-link bg-success text-white">My Assignments</a>
                     </li>
-                
+                    
                     <li class="nav-item col-12">
                         <a href="#" class="nav-link link-dark bg-success text-white">Grades</a>
                     </li>
@@ -66,6 +67,38 @@
         </div>
     </header>
     
+    <header class="d-lg-none d-block">
+        <div class="open"> 
+          <span class="cls"></span> 
+            <span>
+                <ul class="sub-menu mt-3">
+                    @if (_signInManager.IsSignedIn(User))
+                    {
+                        <li>
+                             <a class="fs-5" asp-area="" asp-controller="Assignments" asp-action="Add">Add Assignment</a>
+                        </li>
+                        <li>
+                             <a class="fs-5" asp-area="" asp-controller="Modules" asp-action="Add">Add Module</a>
+                        </li>
+                        <li>
+                             <a class="fs-5" asp-area="" asp-controller="Courses" asp-action="Add">Add Course</a>
+                        </li>
+                        <li>
+                             <a class="fs-5" asp-area="" asp-controller="Assignments" asp-action="Index">My Assignments</a>
+                        </li>
+                        <li>
+                             <a class="fs-5" asp-area="" asp-controller="Assignments" asp-action="Index">Grades</a>
+                        </li>
+                    }
+                    
+                    <partial name="_LoginPartialMobile"/>
+                </ul >
+            </span> 
+            
+            <span class="cls"></span> 
+        </div>
+    </header>
+
     <div class="w-100 p-4 position-relative">
         @RenderBody()
     </div>

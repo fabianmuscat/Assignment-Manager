@@ -39,7 +39,7 @@ $(document).ready(function () {
             $('body').addClass('menu-close');
         } else if (ww >= screenWidth) {
             $('body').removeClass('menu-close');
-        };
+        }
     };
 
     $(window).resize(function () {

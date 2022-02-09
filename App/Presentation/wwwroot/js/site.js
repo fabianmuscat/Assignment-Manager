@@ -1,38 +1,26 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿function closeMenuOn(...selectors) {
+    $.each(selectors, (index, value) => {
+        $(document).on('click', value, function(event) {
+            $('.open').removeClass('opened').css('background-color', '#146c43');
+            $('.open span').css('position', 'relative');
 
-// Write your JavaScript code.
+            $('.open span:nth-child(1)').css('top', '0');
+            $('.open span:nth-child(3)').css('top', '0');
+            event.stopPropagation();
+        });
+    })
+}
 
-document.addEventListener("DOMContentLoaded", () => {
-    const showNavbar = (toggleId, navId, bodyId, headerId) =>{
-        const toggle = document.getElementById(toggleId),
-            nav = document.getElementById(navId),
-            bodypd = document.getElementById(bodyId),
-            headerpd = document.getElementById(headerId)
+$(document).ready(function() {
+    $(document).on('click', '.open', function(event){
+        $(this).addClass('opened');
+        $(this).css('background', 'none');
+        $('.open span').css('position', 'absolute');
         
-        // Validate that all variables exist
-        if(toggle && nav && bodypd && headerpd){
-            toggle.addEventListener('click', ()=>{
-                nav.classList.toggle('show')
-                toggle.classList.toggle('bx-x')
-                bodypd.classList.toggle('body-pd')
-                headerpd.classList.toggle('body-pd')
-            })
-        }
-    }
-
-    showNavbar('header-toggle','nav-bar','body-pd','header')
-
-    /*===== LINK ACTIVE =====*/
-    const linkColor = document.querySelectorAll('.nav_link')
-
-    function colorLink(){
-        if(linkColor){
-            linkColor.forEach(l=> l.classList.remove('active'))
-            this.classList.add('active')
-        }
-    }
-    linkColor.forEach(l=> l.addEventListener('click', colorLink))
-
-// Your code to run since DOM is loaded and ready
+        $('.open span:nth-child(1)').css('top', '15%');
+        $('.open span:nth-child(3)').css('top', '75%');
+        event.stopPropagation();
+    });
+    
+    closeMenuOn('body', '.opened', '.cls');
 });

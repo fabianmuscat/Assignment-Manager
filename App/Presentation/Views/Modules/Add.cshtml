@@ -9,7 +9,7 @@
 
     <div id="form" class="position-absolute top-50 start-50 translate-middle col-8">
         @Html.AntiForgeryToken()
-        
+
         @using (Html.BeginForm("Add", "Modules", FormMethod.Post))
         {
             <div class="row mb-4">
@@ -18,7 +18,7 @@
                     @Html.DropDownListFor(assignment => assignment.CourseName, ViewBag.Courses as SelectListItem[], new { @class = "form-select" })
                 </div>
             </div>
-            
+
             <div class="row mb-4">
                 <div class="col-sm-12 col-md-12 col-lg-6 mb-lg-0 mb-md-3 mb-sm-3">
                     @Html.LabelFor(assignment => assignment.Name, "Module", new { @class = "form-label" })
@@ -27,7 +27,7 @@
                         @class = "form-control",
                         placeholder = "Website Design"
                     })
-                    @Html.ValidationMessageFor(assignment => assignment.Name, null, new { @class = "text-danger"})
+                    @Html.ValidationMessageFor(assignment => assignment.Name, null, new { @class = "text-danger" })
                 </div>
 
                 <div class="col-sm-12 col-md-12 col-lg-6">
@@ -43,14 +43,14 @@
                         @Html.RadioButtonFor(assignment => assignment.SemesterNumber, 1, new { @class = "form-check-input" })
                     </div>
                 </div>
-                
+
                 <div class="col-12">
                     <div class="col d-flex justify-content-between align-items-center">
                         @Html.LabelFor(assignment => assignment.SemesterNumber, "Semester 2", new { @class = "form-label my-auto" })
                         @Html.RadioButtonFor(assignment => assignment.SemesterNumber, 2, new { @class = "form-check-input" })
                     </div>
                 </div>
-                @Html.ValidationMessageFor(assignment => assignment.SemesterNumber, null, new { @class = "text-danger"})
+                @Html.ValidationMessageFor(assignment => assignment.SemesterNumber, null, new { @class = "text-danger" })
             </div>
 
             <input type="submit" value="Save" class="btn btn-success alert alert-success col-12 p-2"/>

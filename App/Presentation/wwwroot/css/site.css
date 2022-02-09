@@ -1,18 +1,31 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+}
+
+header {
+    z-index: 1;
+}
+
+footer {
+    z-index: 1;
+}
+
+.form-control:focus {
+    border-color: rgb(25, 135, 84) !important;
+    box-shadow: 0 0 0 0.25rem #19875482 !important;
 }

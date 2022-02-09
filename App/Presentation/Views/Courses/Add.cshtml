@@ -4,18 +4,16 @@
     ViewData["Title"] = "Add Course";
 }
 
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-@section Scripts {
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-}
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
 <section>
     <h4 class="fw-bold mb-3">@ViewData["Title"]</h4>
 
     <div id="form" class="position-absolute top-50 start-50 translate-middle col-8">
         @Html.AntiForgeryToken()
-        
+
         @using (Html.BeginForm("Add", "Courses", FormMethod.Post))
         {
             <div class="row mb-4">
@@ -26,14 +24,15 @@
                         @class = "form-control",
                         placeholder = "Bachelor of Science (Honours) in Software Development"
                     })
-                    @Html.ValidationMessageFor(course => course.Name, null, new { @class = "text-danger"})</div>
+                    @Html.ValidationMessageFor(course => course.Name, null, new { @class = "text-danger" })
+                </div>
             </div>
-            
+
             <div class="row mb-4">
                 <div class="col-12">
                     @Html.Label("Course Length", "Course Length", new { @class = "form-label" })
                     @Html.EditorFor(course => course.EnrollmentDates, new { htmlAttributes = new { @class = "form-control", type = "text" } })
-                    
+
                     <script type="text/javascript">
                     $(document).ready(() => {
                         $("input[name='EnrollmentDates']").daterangepicker({
@@ -47,8 +46,8 @@
                         });
                     });
                     </script>
-                    
-                    @Html.ValidationMessageFor(course => course.EnrollmentDates, null, new { @class = "text-danger"})
+
+                    @Html.ValidationMessageFor(course => course.EnrollmentDates, null, new { @class = "text-danger" })
                 </div>
             </div>
 

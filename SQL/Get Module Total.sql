@@ -1,19 +1,23 @@
-USE Assignments;
+USE
+Assignments;
 GO
 
-CREATE OR ALTER FUNCTION [dbo].[GetModuleTotal](@moduleId NVARCHAR(30))
+CREATE
+OR ALTER FUNCTION
+[dbo].[GetModuleTotal](@moduleId NVARCHAR(30))
 RETURNS TINYINT
 BEGIN
-    DECLARE @total TINYINT;
+    DECLARE
+@total TINYINT;
 
-    SELECT @total = SUM(sa.Points)
-    FROM Assignment a
-    JOIN StudentAssignment sa
-        ON (a.AssignmentID = SA.AssignmentID)
-    WHERE a.ModuleID = @moduleId
-    GROUP BY a.ModuleID;
+SELECT @total = SUM(sa.Points)
+FROM Assignment a
+         JOIN StudentAssignment sa
+              ON (a.AssignmentID = SA.AssignmentID)
+WHERE a.ModuleID = @moduleId
+GROUP BY a.ModuleID;
 
-    RETURN @total;
+RETURN @total;
 END
 
 SELECT dbo.fn_getModuleTotal('ENG1');

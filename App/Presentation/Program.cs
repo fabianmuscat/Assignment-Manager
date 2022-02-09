@@ -4,7 +4,6 @@ using Data;
 using Data.Interfaces;
 using Data.Repositories;
 using Domain.Models;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Presentation.Areas.Identity.Data;
 
@@ -39,8 +38,10 @@ builder.Services.AddScoped<ICourseService, CourseService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment()) 
+if (app.Environment.IsDevelopment())
+{
     app.UseMigrationsEndPoint();
+}
 else
 {
     app.UseExceptionHandler("/Home/Error");
@@ -56,8 +57,8 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Assignments}/{action=Redirect}/{id?}");
+    "default",
+    "{controller=Assignments}/{action=Redirect}/{id?}");
 app.MapRazorPages();
 
 app.Run();

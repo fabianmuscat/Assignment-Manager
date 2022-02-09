@@ -11,7 +11,7 @@ public class ModuleRepository : IModuleRepository
     {
         _context = context;
     }
-    
+
     public void AddModule(string module, string course, int semesterNumber, int year)
     {
         _context.Modules!.FromSqlRaw($"EXEC AddModule {module} {course} {semesterNumber} {year}");
