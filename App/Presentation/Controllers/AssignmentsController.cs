@@ -1,55 +1,57 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using Application.Interfaces;
 using Application.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.Models;
 
-namespace Presentation.Controllers;
-
-public class AssignmentsController : Controller
+namespace Presentation.Controllers
 {
-    private readonly IAssignmentService _assignmentService;
-
-    public AssignmentsController(IAssignmentService assignmentService)
+    public class AssignmentsController : Controller
     {
-        _assignmentService = assignmentService;
-    }
+        private readonly IAssignmentService _assignmentService;
 
-    public IActionResult Index()
-    {
-        return View(_assignmentService.GetAssignments());
-    }
+        public AssignmentsController(IAssignmentService assignmentService)
+        {
+            _assignmentService = assignmentService;
+        }
 
-    [HttpGet]
-    public IActionResult Add()
-    {
-        return DateTime.Now.Month is >= 10 or < 2 // >= October && < February
-            ? View(new AddAssignmentViewModel { SemesterNumber = 1 })
-            : View(new AddAssignmentViewModel { SemesterNumber = 2 });
-    }
+        public IActionResult Index()
+        {
+            return View(_assignmentService.GetAssignments());
+        }
 
-    [HttpPost]
-    public IActionResult Add(AddAssignmentViewModel addModel)
-    {
-        return View();
-    }
+        [HttpGet]
+        public IActionResult Add()
+        {
+            return DateTime.Now.Month is >= 10 or < 2 // >= October && < February
+                ? View(new AddAssignmentViewModel { SemesterNumber = 1 })
+                : View(new AddAssignmentViewModel { SemesterNumber = 2 });
+        }
+
+        [HttpPost]
+        public IActionResult Add(AddAssignmentViewModel addModel)
+        {
+            return View();
+        }
 
 
-    public IActionResult Privacy()
-    {
-        return View();
-    }
+        public IActionResult Privacy()
+        {
+            return View();
+        }
 
-    public IActionResult Redirect()
-    {
-        return User.Identity is { IsAuthenticated: false }
-            ? Redirect("/Identity/Account/Login")
-            : Redirect("/Assignments/Index");
-    }
+        public IActionResult Redirect()
+        {
+            return User.Identity is { IsAuthenticated: false }
+                ? Redirect("/Identity/Account/Login")
+                : Redirect("/Assignments/Index");
+        }
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
     }
 }

@@ -1,8 +1,12 @@
-namespace Application.ViewModels;
+using System;
+// Resharper Disable All
 
-public class CourseViewModel
+namespace Application.ViewModels
 {
-    public string CourseName { get; set; } = null!;
-    public DateTime EnrollmentDate { get; set; }
-    public DateTime EndDate { get; set; }
+    public class CourseViewModel
+    {
+        public string CourseName { get; set; } = null!;
+        public DateTime EnrollmentDate { get; set; }
+        public DateTime EndDate { get; set; }
+    }    
 }

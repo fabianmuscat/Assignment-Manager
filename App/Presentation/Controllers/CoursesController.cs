@@ -1,45 +1,47 @@
+using System.Collections.Generic;
 using Application.Interfaces;
 using Application.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.Models;
 
-namespace Presentation.Controllers;
-
-[Authorize]
-public class CoursesController : Controller
+namespace Presentation.Controllers
 {
-    private readonly ICourseService _courseService;
-
-    public CoursesController(ICourseService courseService)
+    [Authorize]
+    public class CoursesController : Controller
     {
-        _courseService = courseService;
-    }
+        private readonly ICourseService _courseService;
 
-    [HttpGet]
-    public IActionResult Add()
-    {
-        return View();
-    }
-
-    [HttpPost]
-    public IActionResult Add(AddCourseViewModel addModel)
-    {
-        var addForm = new List<FormControl>
+        public CoursesController(ICourseService courseService)
         {
-            new() { Value = addModel.Name, Error = "Course Name cannot be empty", Validator = Validators.Required },
-            new() { Value = addModel.EnrollmentDates, Error = "Enrollment Dates cannot be empty", Validator = Validators.Required }
-        };
+            _courseService = courseService;
+        }
 
-        dynamic form = Utils.ValidateForm(addForm);
-        if (!form.valid)
+        [HttpGet]
+        public IActionResult Add()
         {
-            ViewBag.Error = form.error;
             return View();
         }
 
-        addModel.User = User.Identity!.Name;
-        ViewBag.Error = _courseService.AddCourse(addModel);
-        return View();
+        [HttpPost]
+        public IActionResult Add(AddCourseViewModel addModel)
+        {
+            var addForm = new List<FormControl>
+            {
+                new() { Value = addModel.Name, Error = "Course Name cannot be empty", Validator = Validators.Required },
+                new() { Value = addModel.EnrollmentDates, Error = "Enrollment Dates cannot be empty", Validator = Validators.Required }
+            };
+
+            dynamic form = Utils.ValidateForm(addForm);
+            if (!form.valid)
+            {
+                ViewBag.Error = form.error;
+                return View();
+            }
+
+            addModel.User = User.Identity!.Name;
+            ViewBag.Error = _courseService.AddCourse(addModel);
+            return View();
+        }
     }
 }

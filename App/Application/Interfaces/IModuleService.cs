@@ -1,8 +1,11 @@
+using System.Linq;
 using Application.ViewModels;
+// Resharper Disable All
 
-namespace Application.Interfaces;
-
-public interface IModuleService
+namespace Application.Interfaces
 {
-    public IQueryable<AddModuleViewModel> AddModule();
+    public interface IModuleService
+    {
+        public IQueryable<AddModuleViewModel> AddModule();
+    }   
 }

@@ -1,6 +1,9 @@
-namespace Data.Interfaces;
+// Resharper Disable All
 
-public interface IModuleRepository
+namespace Data.Interfaces
 {
-    public void AddModule(string module, string course, int semesterNumber, int year);
+    public interface IModuleRepository
+    {
+        public void AddModule(string module, string course, int semesterNumber, int year);
+    }    
 }

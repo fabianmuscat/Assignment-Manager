@@ -1,10 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
-        <Nullable>enable</Nullable>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <UserSecretsId>aspnet-Presentation-251ABFAE-5BC8-40E3-8480-0864A1963C81</UserSecretsId>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <UserSecretsId>aspnet-Presentation-2B3B6DDD-1E3C-4CD0-8F00-066005D329B8</UserSecretsId>
+        <LangVersion>preview</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
@@ -12,22 +11,62 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.1" />
-        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.1" />
-        <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.1" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.1" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.1" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.1" />
-        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.1" />
+        <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.20" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.20" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.20" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.20">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.20" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.20" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.20" />
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Application\Application.csproj" />
-        <ProjectReference Include="..\Data\Data.csproj" />
+      <ProjectReference Include="..\Application\Application.csproj" />
+      <ProjectReference Include="..\Data\Data.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <_ContentIncludedByDefault Remove="wwwroot\lib\mobile-navbar\style.css" />
+      <Content Include="..\..\..\Documents\Projects\Assignment-Manager\App\Presentation\Areas\Identity\Pages\Account\Login.cshtml">
+        <Link>Areas\Identity\Pages\Account\Login.cshtml</Link>
+      </Content>
+      <Content Include="..\..\..\Documents\Projects\Assignment-Manager\App\Presentation\Areas\Identity\Pages\Account\Logout.cshtml">
+        <Link>Areas\Identity\Pages\Account\Logout.cshtml</Link>
+      </Content>
+      <Content Include="..\..\..\Documents\Projects\Assignment-Manager\App\Presentation\Areas\Identity\Pages\Account\Register.cshtml">
+        <Link>Areas\Identity\Pages\Account\Register.cshtml</Link>
+      </Content>
+      <Content Include="..\..\..\Documents\Projects\Assignment-Manager\App\Presentation\Areas\Identity\Pages\Account\_ViewImports.cshtml">
+        <Link>Areas\Identity\Pages\Account\_ViewImports.cshtml</Link>
+      </Content>
+      <Content Include="..\..\..\Documents\Projects\Assignment-Manager\App\Presentation\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml">
+        <Link>Areas\Identity\Pages\_ValidationScriptsPartial.cshtml</Link>
+      </Content>
+      <Content Include="..\..\..\Documents\Projects\Assignment-Manager\App\Presentation\Areas\Identity\Pages\_ViewImports.cshtml">
+        <Link>Areas\Identity\Pages\_ViewImports.cshtml</Link>
+      </Content>
+      <Content Include="..\..\..\Documents\Projects\Assignment-Manager\App\Presentation\Areas\Identity\Pages\_ViewStart.cshtml">
+        <Link>Areas\Identity\Pages\_ViewStart.cshtml</Link>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Include="..\..\..\Documents\Projects\Assignment-Manager\App\Presentation\Areas\Identity\Pages\Account\Login.cshtml.cs">
+        <Link>Areas\Identity\Pages\Account\Login.cshtml.cs</Link>
+      </Compile>
+      <Compile Include="..\..\..\Documents\Projects\Assignment-Manager\App\Presentation\Areas\Identity\Pages\Account\Logout.cshtml.cs">
+        <Link>Areas\Identity\Pages\Account\Logout.cshtml.cs</Link>
+      </Compile>
+      <Compile Include="..\..\..\Documents\Projects\Assignment-Manager\App\Presentation\Areas\Identity\Pages\Account\Register.cshtml.cs">
+        <Link>Areas\Identity\Pages\Account\Register.cshtml.cs</Link>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="wwwroot\js\site.js" />
     </ItemGroup>
 
 </Project>

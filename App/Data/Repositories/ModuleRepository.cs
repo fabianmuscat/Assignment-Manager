@@ -1,19 +1,21 @@
 using Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
+// Resharper Disable All
 
-namespace Data.Repositories;
-
-public class ModuleRepository : IModuleRepository
+namespace Data.Repositories
 {
-    private readonly AssignmentsContext _context;
-
-    public ModuleRepository(AssignmentsContext context)
+    public class ModuleRepository : IModuleRepository
     {
-        _context = context;
-    }
+        private readonly AssignmentsContext _context;
 
-    public void AddModule(string module, string course, int semesterNumber, int year)
-    {
-        _context.Modules!.FromSqlRaw($"EXEC AddModule {module} {course} {semesterNumber} {year}");
-    }
+        public ModuleRepository(AssignmentsContext context)
+        {
+            _context = context;
+        }
+
+        public void AddModule(string module, string course, int semesterNumber, int year)
+        {
+            _context.Modules!.FromSqlRaw($"EXEC AddModule {module} {course} {semesterNumber} {year}");
+        }
+    }   
 }

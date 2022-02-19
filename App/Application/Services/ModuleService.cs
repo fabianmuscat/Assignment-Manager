@@ -1,20 +1,24 @@
+using System;
+using System.Linq;
 using Application.Interfaces;
 using Application.ViewModels;
 using Data.Interfaces;
+// Resharper Disable All
 
-namespace Application.Services;
-
-public class ModuleService : IModuleService
+namespace Application.Services
 {
-    private readonly IModuleRepository _moduleRepository;
-
-    public ModuleService(IModuleRepository moduleRepository)
+    public class ModuleService : IModuleService
     {
-        _moduleRepository = moduleRepository;
-    }
+        private readonly IModuleRepository _moduleRepository;
 
-    public IQueryable<AddModuleViewModel> AddModule()
-    {
-        throw new NotImplementedException();
-    }
+        public ModuleService(IModuleRepository moduleRepository)
+        {
+            _moduleRepository = moduleRepository;
+        }
+
+        public IQueryable<AddModuleViewModel> AddModule()
+        {
+            throw new NotImplementedException();
+        }
+    }   
 }

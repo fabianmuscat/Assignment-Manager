@@ -1,38 +1,43 @@
+using System;
+using System.Linq;
 using Data.Interfaces;
 using Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Type = Domain.Models.Type;
+// Resharper Disable All
 
-namespace Data.Repositories;
-
-public class AssignmentRepository : IAssignmentRepository
+namespace Data.Repositories
 {
-    private readonly AssignmentsContext _context;
-
-    public AssignmentRepository(AssignmentsContext context)
+    public class AssignmentRepository : IAssignmentRepository
     {
-        _context = context;
-    }
+        private readonly AssignmentsContext _context;
 
-    public IQueryable<Assignment> GetAssignments()
-    {
-        return _context.Assignments;
-    }
+        public AssignmentRepository(AssignmentsContext context)
+        {
+            _context = context;
+        }
 
-    public IQueryable<Type> GetTypes()
-    {
-        return _context.Type;
-    }
+        public IQueryable<Assignment> GetAssignments()
+        {
+            return _context.Assignments;
+        }
 
-    public IQueryable<Module> GetModules()
-    {
-        return _context.Modules;
-    }
+        public IQueryable<Type> GetTypes()
+        {
+            return _context.Type;
+        }
 
-    public void AddAssignment(string name, string module, string type, int semester, int maxMark, DateTime startDate,
-        DateTime deadlineDate)
-    {
-        _context.Assignments!.FromSqlRaw(
-            $"EXEC AddAssignment {name} {module} {type} {semester} {maxMark} {startDate} {deadlineDate}");
-    }
+        public IQueryable<Module> GetModules()
+        {
+            return _context.Modules;
+        }
+
+        public void AddAssignment(string name, string module, string type, int semester, int maxMark, DateTime startDate,
+            DateTime deadlineDate)
+        {
+            _context.Assignments!.FromSqlRaw(
+                $"EXEC AddAssignment {name} {module} {type} {semester} {maxMark} {startDate} {deadlineDate}");
+        }
+    }   
 }
+
