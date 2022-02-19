@@ -1,7 +1,8 @@
-namespace Presentation.Models;
-
-public enum Validators
+namespace Presentation.Models
 {
-    Required,
-    PasswordLength = 6
+    public enum Validators
+    {
+        Required,
+        PasswordLength = 6
+    }
 }

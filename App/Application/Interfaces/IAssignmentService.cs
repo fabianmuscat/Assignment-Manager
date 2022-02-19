@@ -1,8 +1,11 @@
+using System.Linq;
 using Application.ViewModels;
+// Resharper Disable All
 
-namespace Application.Interfaces;
-
-public interface IAssignmentService
+namespace Application.Interfaces
 {
-    public IQueryable<AssignmentViewModel> GetAssignments();
+    public interface IAssignmentService
+    {
+        public IQueryable<AssignmentViewModel> GetAssignments();
+    }   
 }

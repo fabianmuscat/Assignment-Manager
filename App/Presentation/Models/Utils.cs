@@ -1,33 +1,38 @@
-namespace Presentation.Models;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Http;
 
-public class Utils
+namespace Presentation.Models
 {
-    public static object ValidateForm(List<FormControl> list)
+    public class Utils
     {
-        object ret = new { valid = true };
-        foreach (var formControl in list)
+        public static object ValidateForm(List<FormControl> list)
         {
-            var validator = formControl.Validator;
-            if (validator == Validators.Required)
+            object ret = new { valid = true };
+            foreach (var formControl in list)
             {
-                if (formControl.Value is IFormFile[] files)
+                var validator = formControl.Validator;
+                if (validator == Validators.Required)
                 {
-                    if (files.Length != 0) continue;
-                    ret = new { valid = false, error = formControl.Error };
-                    break;
+                    if (formControl.Value is IFormFile[] files)
+                    {
+                        if (files.Length != 0) continue;
+                        ret = new { valid = false, error = formControl.Error };
+                        break;
+                    }
+
+                    if (!string.IsNullOrEmpty(formControl.Value as string)) continue;
+                    ret = new { valid = false, error = formControl!.Error };
+                    break; // if we arrived here, it means the form control is invalid so break the loop and return the error
                 }
 
-                if (!string.IsNullOrEmpty(formControl.Value as string)) continue;
-                ret = new { valid = false, error = formControl!.Error };
-                break; // if we arrived here, it means the form control is invalid so break the loop and return the error
+                if (validator != Validators.PasswordLength) continue;
+                if (formControl.Value != null &&
+                    formControl.Value.ToString()!.Length < (int)Validators.PasswordLength)
+                    ret = new { valid = false, error = formControl!.Error };
             }
 
-            if (validator != Validators.PasswordLength) continue;
-            if (formControl.Value != null &&
-                formControl.Value.ToString()!.Length < (int)Validators.PasswordLength)
-                ret = new { valid = false, error = formControl!.Error };
+            return ret;
         }
-
-        return ret;
-    }
+    }   
 }
+

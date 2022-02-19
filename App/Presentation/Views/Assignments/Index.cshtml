@@ -5,14 +5,14 @@
 @{
     ViewData["Title"] = "My Assignments";
 
-    List<AssignmentViewModel>? home = null, practicals = null, tcas = null;
+    List<AssignmentViewModel> home = null, practicals = null, tcas = null;
     if (Model != null && Model.Any())
     {
         home = Model.Where(model => model.Type!.ToLower().Equals("home")).ToList();
         practicals = Model.Where(model => model.Type!.ToLower().Equals("practical")).ToList();
         tcas = Model.Where(model => model.Type!.ToLower().Equals("tca")).ToList();
     }
-    var all = new Dictionary<string, List<AssignmentViewModel?>> { { "Home", home! }, { "Practical", practicals! }, { "TCA", tcas! } };
+    var all = new Dictionary<string, List<AssignmentViewModel>> { { "Home", home! }, { "Practical", practicals! }, { "TCA", tcas! } };
 }
 
 <section>

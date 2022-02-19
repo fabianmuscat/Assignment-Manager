@@ -1,8 +1,9 @@
-namespace Presentation.Models;
-
-public class FormControl
+namespace Presentation.Models
 {
-    public object? Value { get; set; }
-    public string? Error { get; set; }
-    public Validators Validator { get; set; }
+    public class FormControl
+    {
+        public object Value { get; set; }
+        public string Error { get; set; }
+        public Validators Validator { get; set; }
+    }
 }

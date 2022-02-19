@@ -2,13 +2,13 @@ using Domain.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Type = Domain.Models.Type;
-
-namespace Data;
-
 // Resharper Disable All
-public class AssignmentsContext : IdentityDbContext
+
+namespace Data
 {
-    public AssignmentsContext(DbContextOptions options) : base(options)
+    public class AssignmentsContext : IdentityDbContext
+{
+    public AssignmentsContext(DbContextOptions<AssignmentsContext> options) : base(options)
     {
     }
 
@@ -94,4 +94,5 @@ public class AssignmentsContext : IdentityDbContext
         
         base.OnModelCreating(modelBuilder);
     }
+}
 }

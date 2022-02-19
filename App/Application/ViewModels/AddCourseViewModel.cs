@@ -1,15 +1,17 @@
 using System.ComponentModel.DataAnnotations;
+// Resharper Disable All
 
-namespace Application.ViewModels;
-
-public class AddCourseViewModel
+namespace Application.ViewModels
 {
-    [Required(AllowEmptyStrings = true, ErrorMessage = "Course Name cannot be empty")]
-    public string? Name { get; set; }
+    public class AddCourseViewModel
+    {
+        [Required(AllowEmptyStrings = true, ErrorMessage = "Course Name cannot be empty")]
+        public string Name { get; set; }
 
-    [Required(ErrorMessage = "Enrollment Year cannot be empty")]
-    public string? EnrollmentDates { get; set; }
+        [Required(ErrorMessage = "Enrollment Year cannot be empty")]
+        public string EnrollmentDates { get; set; }
     
-    [Required] 
-    public string? User { get; set; }
+        [Required] 
+        public string User { get; set; }
+    }
 }

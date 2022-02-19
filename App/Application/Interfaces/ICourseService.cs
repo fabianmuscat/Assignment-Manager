@@ -1,9 +1,12 @@
+using System.Collections.Generic;
 using Application.ViewModels;
+// Resharper Disable All
 
-namespace Application.Interfaces;
-
-public interface ICourseService
+namespace Application.Interfaces
 {
-    public string AddCourse(AddCourseViewModel course);
-    public Dictionary<CourseViewModel, int> GetCourses(string user);
+    public interface ICourseService
+    {
+        public string AddCourse(AddCourseViewModel course);
+        public Dictionary<CourseViewModel, int> GetCourses(string user);
+    }   
 }
