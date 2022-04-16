@@ -30,42 +30,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Content Include="..\..\..\Documents\Projects\Assignment-Manager\App\Presentation\Areas\Identity\Pages\Account\Login.cshtml">
-        <Link>Areas\Identity\Pages\Account\Login.cshtml</Link>
-      </Content>
-      <Content Include="..\..\..\Documents\Projects\Assignment-Manager\App\Presentation\Areas\Identity\Pages\Account\Logout.cshtml">
-        <Link>Areas\Identity\Pages\Account\Logout.cshtml</Link>
-      </Content>
-      <Content Include="..\..\..\Documents\Projects\Assignment-Manager\App\Presentation\Areas\Identity\Pages\Account\Register.cshtml">
-        <Link>Areas\Identity\Pages\Account\Register.cshtml</Link>
-      </Content>
-      <Content Include="..\..\..\Documents\Projects\Assignment-Manager\App\Presentation\Areas\Identity\Pages\Account\_ViewImports.cshtml">
-        <Link>Areas\Identity\Pages\Account\_ViewImports.cshtml</Link>
-      </Content>
-      <Content Include="..\..\..\Documents\Projects\Assignment-Manager\App\Presentation\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml">
-        <Link>Areas\Identity\Pages\_ValidationScriptsPartial.cshtml</Link>
-      </Content>
-      <Content Include="..\..\..\Documents\Projects\Assignment-Manager\App\Presentation\Areas\Identity\Pages\_ViewImports.cshtml">
-        <Link>Areas\Identity\Pages\_ViewImports.cshtml</Link>
-      </Content>
-      <Content Include="..\..\..\Documents\Projects\Assignment-Manager\App\Presentation\Areas\Identity\Pages\_ViewStart.cshtml">
-        <Link>Areas\Identity\Pages\_ViewStart.cshtml</Link>
-      </Content>
-    </ItemGroup>
-
-    <ItemGroup>
-      <Compile Include="..\..\..\Documents\Projects\Assignment-Manager\App\Presentation\Areas\Identity\Pages\Account\Login.cshtml.cs">
-        <Link>Areas\Identity\Pages\Account\Login.cshtml.cs</Link>
-      </Compile>
-      <Compile Include="..\..\..\Documents\Projects\Assignment-Manager\App\Presentation\Areas\Identity\Pages\Account\Logout.cshtml.cs">
-        <Link>Areas\Identity\Pages\Account\Logout.cshtml.cs</Link>
-      </Compile>
-      <Compile Include="..\..\..\Documents\Projects\Assignment-Manager\App\Presentation\Areas\Identity\Pages\Account\Register.cshtml.cs">
-        <Link>Areas\Identity\Pages\Account\Register.cshtml.cs</Link>
-      </Compile>
-    </ItemGroup>
-
-    <ItemGroup>
       <_ContentIncludedByDefault Remove="wwwroot\js\site.js" />
     </ItemGroup>
 
